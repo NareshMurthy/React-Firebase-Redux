@@ -1,0 +1,45 @@
+import React from "react";
+
+import { Link, NavLink } from "react-router-dom";
+import { firebase } from "react-redux-firebase";
+import { connect } from "react-redux";
+
+import SignInLinks from "./SignInLinks";
+import SignOutLinks from "./SignOutLinks";
+
+const Navbar = props => {
+  const { auth, profile } = props;
+  const links = auth.uid ? <SignOutLinks profile={profile} /> : <SignInLinks />;
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark danger-color ">
+      <Link className="navbar-brand" to="/">
+        My Project
+      </Link>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon" />
+      </button>
+
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto " />
+        {links}
+      </div>
+    </nav>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);
