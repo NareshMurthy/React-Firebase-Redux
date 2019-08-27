@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+* {
+  font-family: "Nunito", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+// Variables
+$marginTop: 40px;
+$signWidth: 40em;
+$footerHeight: 60px;
+
+// Mixins
+@mixin displayFlex {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-left {
+  margin-top: $marginTop;
+}
+.booking-right {
+  margin-top: $marginTop;
+  display: flex;
+  justify-content: space-around;
+}
+.signin-div {
+  margin-top: $marginTop;
+  width: $signWidth;
+  @include displayFlex;
+}
+.signup-div {
+  margin-top: $marginTop;
+  width: $signWidth;
+  @include displayFlex;
+}
+.btn-submit {
+  @include displayFlex;
+}
+.footer-div {
+  height: $footerHeight;
+  @include displayFlex;
+  align-items: center;
+}
+.userprofile-div {
+  margin-top: 10px;
+  width: $signWidth;
+  @include displayFlex;
+}
+.booking-cards {
+  /* margin-left: 30px; */
+  width: 95%;
+}
