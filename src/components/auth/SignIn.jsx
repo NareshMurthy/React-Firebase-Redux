@@ -1,16 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn } from "./../../store/actions/authActions";
+
+import formValidation from "../common/FormValidaton";
+import RenderInput from "../common/RenderInput";
 import { Redirect } from "react-router-dom";
 class SignIn extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    errors: {}
   };
   handleChange = e => {
-    this.setState({
-      [e.target.id]: e.target.value
-    });
+    const { id, value } = e.target;
+    let errors = this.state.errors;
+
+    switch (id) {
+      case "email":
+        errors.email = formValidation(id, value) ? "" : "Enter a valid mail id";
+        break;
+      case "password":
+        errors.password = formValidation(id, value)
+          ? ""
+          : "Password should be atleast 6 characters";
+        break;
+      default:
+        break;
+    }
+    console.log(this.state.errors);
+    this.setState({ errors: errors, [id]: value });
   };
   doSubmit = e => {
     e.preventDefault();
@@ -18,41 +36,38 @@ class SignIn extends Component {
   };
   render() {
     const { authError, auth } = this.props;
+    const { errors } = this.state;
     if (auth.uid) return <Redirect to="/" />;
     return (
-      <div className="container signin-div">
+      <div className="container ">
         <div className="signin-div">
-          <form onSubmit={this.doSubmit} className="col s12">
-            <div className="row">
-              <div className="form-group col s12 md-form">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  onChange={this.handleChange}
-                />
-                <small id="emailHelp" className="form-text text-muted">
-                  We'll never share your email with anyone else.
-                </small>
-              </div>
-            </div>
-            <div className="row">
-              <div className="form-group  col s12 md-form">
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder="Password"
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
+          <form onSubmit={this.doSubmit} className="ui form">
+            <RenderInput
+              type="email"
+              id="email"
+              placeholder="Enter email"
+              onChange={this.handleChange}
+              error={errors.email}
+            ></RenderInput>
+
+            <RenderInput
+              type="password"
+              id="password"
+              placeholder="Password"
+              onChange={this.handleChange}
+              error={errors.password}
+            ></RenderInput>
             <button type="submit" className="btn btn-danger">
               Log In
             </button>
-            <div>{authError ? <p>{authError}</p> : null}</div>
+
+            <div className="form-text">
+              {authError ? (
+                <small className="text-danger">
+                  Username or password is incorrect
+                </small>
+              ) : null}
+            </div>
           </form>
         </div>
       </div>

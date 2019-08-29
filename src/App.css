@@ -5,6 +5,18 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none;
+}
+
 .booking-left {
   margin-top: 40px;
 }
@@ -18,9 +30,12 @@
       justify-content: space-around;
 }
 
+.form {
+  width: 50%;
+}
+
 .signin-div {
   margin-top: 40px;
-  width: 40em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,7 +46,6 @@
 
 .signup-div {
   margin-top: 40px;
-  width: 40em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,21 +64,31 @@
 }
 
 .footer-div {
-  height: 60px;
+  height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: white;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 12px;
+}
+
+.footer-div a {
+  color: white;
+}
+
+.footer-div a:hover {
+  text-decoration: none;
+  color: cyan;
 }
 
 .userprofile-div {
   margin-top: 10px;
-  width: 40em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,7 +98,17 @@
 }
 
 .booking-cards {
-  /* margin-left: 30px; */
   width: 95%;
+}
+
+.form-text {
+  color: red;
+  margin-left: 15px;
+}
+
+.initials {
+  background: white;
+  text-transform: uppercase;
+  padding: 2px 0 2px 20px;
 }
 /*# sourceMappingURL=App.css.map */

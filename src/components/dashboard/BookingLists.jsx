@@ -1,18 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// {moment(props.date.toDate()).calendar()}
 import moment from "moment";
 
 const BookingLists = props => {
+  console.log(props.date.seconds);
   return (
-    <div
-      className="card text-white bg-dark mb-2"
-      style={{ width: "13rem", height: "7rem" }}
-    >
-      <div className="card-header">date</div>
-      <Link to={"/booking/" + props.bookingId}>
-        <h3 className="card-title booking-cards">{props.course}</h3>
-      </Link>
+    <div className="ui card">
+      <div className="content">
+        <div className="center aligned header">{props.course}</div>
+        <div className="center aligned description">
+          <p>Jenny is a student studying Media Management at the New School</p>
+        </div>
+      </div>
+      <div className="extra content">
+        <div className="author">
+          By{"    "}
+          <img
+            className="ui avatar image"
+            src="https://semantic-ui.com/images/avatar/small/jenny.jpg"
+          />
+          coolguy {moment.unix(props.createdAt.seconds).fromNow()}
+        </div>
+      </div>
     </div>
   );
 };

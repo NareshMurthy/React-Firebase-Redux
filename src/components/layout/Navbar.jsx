@@ -9,9 +9,10 @@ import SignOutLinks from "./SignOutLinks";
 
 const Navbar = props => {
   const { auth, profile } = props;
+  console.log(auth);
   const links = auth.uid ? <SignOutLinks profile={profile} /> : <SignInLinks />;
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark danger-color ">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-danger">
       <Link className="navbar-brand" to="/">
         My Project
       </Link>
@@ -19,16 +20,16 @@ const Navbar = props => {
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
+        data-target="#navbarText"
+        aria-controls="navbarText"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon" />
+        <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto " />
+      <div className="collapse navbar-collapse" id="navbarText">
+        <ul className="navbar-nav mr-auto" />
         {links}
       </div>
     </nav>

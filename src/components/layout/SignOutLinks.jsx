@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { signOut } from "./../../store/actions/authActions";
 const SignOutLinks = props => {
+  console.log(props.profile);
   return (
     <ul className="navbar-nav mr-5 ">
       <li className="nav-item ">
@@ -15,8 +16,12 @@ const SignOutLinks = props => {
           Logout
         </a>
       </li>
-      <li className="nav-item ">
-        <NavLink className="nav-link " to="/userprofile">
+      <li className="nav-item">
+        <NavLink
+          className="nav-link initials"
+          to="/userprofile"
+          style={{ color: "red" }}
+        >
           {props.profile.initials}
         </NavLink>
       </li>

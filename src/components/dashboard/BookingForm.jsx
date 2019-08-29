@@ -2,60 +2,67 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createBooking } from "../../store/actions/bookingActions";
 import { Redirect } from "react-router-dom";
+import RenderSelect from "./../common/RenderSelect";
+import Moment from "moment";
+import momentLocalizer from "react-widgets-moment";
+import DateTimePicker from "react-widgets/lib/DateTimePicker";
+
+Moment.locale("en");
+momentLocalizer();
+
 class BookingForm extends Component {
-  state = { date: "", location: "", course: "" };
-  handleChange = e => {
+  state = {
+    date: "",
+    location: "",
+    course: ""
+  };
+
+  handleSelectChange = (e, id) => {
     this.setState({
-      [e.target.id]: e.target.value
+      [id]: e.value
     });
   };
   doSubmit = e => {
     e.preventDefault();
     this.props.createBooking(this.state);
   };
+
   render() {
     const { auth } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
+    let locationOptions = [
+      { value: "Govt school", label: "Govt school" },
+      { value: "some college", label: "some college" },
+      { value: "this college", label: "this college" }
+    ];
+    let courseOptions = [
+      { value: "Algorithms", label: "Algorithms" },
+      { value: "Data Structs", label: "Data Structs" },
+      { value: "Science", label: "Science" }
+    ];
     return (
-      <div className="row">
-        <form className="col s12" onSubmit={this.doSubmit}>
-          <div className="row">
-            <div className="form-group col s12 md-form">
-              <input
-                id="date"
-                type="text"
-                placeholder="Date"
-                className="form-control"
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
+      <form className="ui form" onSubmit={this.doSubmit}>
+        <DateTimePicker
+          className="mb-4"
+          placeholder="Date"
+          max={new Date()}
+          onChange={value => this.setState({ date: value })}
+        />
 
-          <div className="row">
-            <div className="form-group col s12 md-form">
-              <input
-                id="location"
-                type="text"
-                placeholder="Location"
-                className="form-control"
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="form-group col s12 md-form">
-              <input
-                id="course"
-                type="text"
-                placeholder="Course"
-                className="form-control"
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-          <button className="btn btn-danger">Book</button>
-        </form>
-      </div>
+        <RenderSelect
+          id="location"
+          options={locationOptions}
+          onChange={this.handleSelectChange}
+        ></RenderSelect>
+
+        <RenderSelect
+          id="course"
+          options={courseOptions}
+          onChange={this.handleSelectChange}
+        ></RenderSelect>
+
+        <button className="btn btn-danger mt-4">Book</button>
+      </form>
     );
   }
 }

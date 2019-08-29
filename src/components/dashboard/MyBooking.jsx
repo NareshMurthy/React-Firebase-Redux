@@ -13,8 +13,10 @@ const MyBooking = ({ bookings, auth }) => {
               <div>
                 <BookingLists
                   bookingId={booking.id}
+                  location={booking.location}
                   course={booking.course}
                   date={booking.date}
+                  createdAt={booking.createdAt}
                   key={booking.id}
                 />
               </div>
