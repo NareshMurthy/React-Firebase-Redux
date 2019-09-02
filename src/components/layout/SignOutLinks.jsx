@@ -1,9 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { signOut } from "./../../store/actions/authActions";
+
+import { makeStyles } from "@material-ui/core/styles";
+
+import { blue } from "@material-ui/core/colors";
+import Avatar from "@material-ui/core/Avatar";
+const useStyles = makeStyles(theme => ({
+  avatar: {
+    backgroundColor: blue[500]
+  }
+}));
+
 const SignOutLinks = props => {
   console.log(props.profile);
+  const classes = useStyles();
   return (
     <ul className="navbar-nav mr-5 ">
       <li className="nav-item ">
@@ -16,12 +28,8 @@ const SignOutLinks = props => {
           Logout
         </a>
       </li>
-      <li className="nav-item">
-        <NavLink
-          className="nav-link initials"
-          to="/userprofile"
-          style={{ color: "red" }}
-        >
+      <li className="nav-item initials">
+        <NavLink className="nav-link " to="/userprofile">
           {props.profile.initials}
         </NavLink>
       </li>

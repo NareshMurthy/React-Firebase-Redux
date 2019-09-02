@@ -1,6 +1,6 @@
 import React from "react";
 
-import BookingLists from "./BookingLists";
+import BookingCard from "./BookingCard";
 
 const MyBooking = ({ bookings, auth }) => {
   console.log(bookings);
@@ -11,7 +11,7 @@ const MyBooking = ({ bookings, auth }) => {
           if (auth.uid === booking.userId) {
             return (
               <div>
-                <BookingLists
+                <BookingCard
                   bookingId={booking.id}
                   location={booking.location}
                   course={booking.course}

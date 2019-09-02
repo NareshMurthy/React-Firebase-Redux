@@ -107,8 +107,16 @@ input:focus {
 }
 
 .initials {
-  background: white;
   text-transform: uppercase;
-  padding: 2px 0 2px 20px;
+  border-radius: 50%;
+}
+
+.author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=App.css.map */

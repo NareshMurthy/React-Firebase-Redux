@@ -1,8 +1,8 @@
 const regEx = {
   email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})$/,
   phone: /^\d{11}$/,
-  lastName: /^[a-z]{3,20}$/,
-  firstName: /^[a-z]{3,20}$/,
+  lastName: /^[a-z]{3,20}$/i,
+  firstName: /^[a-z]{3,20}$/i,
   password: /^[\w@-]{6,20}$/
 };
 const formValidation = (type, value) => {

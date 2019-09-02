@@ -1,8 +1,9 @@
 import React from "react";
+import Copyright from "./../common/Copyright";
 
 const Footer = () => {
   return (
-    <footer className=" bg-danger fixed-bottom ">
+    <footer className="bg-danger  fixed-bottom ">
       <div className="container footer-div">
         <div className="d-flex justify-content-around">
           <a className="fb-ic">
@@ -30,11 +31,7 @@ const Footer = () => {
               {" "}
             </i>
           </a>
-          <p>
-            {" "}
-            © 2019 Copyright:
-            <a href="https://google.com"> myproject.com</a>
-          </p>
+          <Copyright></Copyright>
         </div>
       </div>
     </footer>

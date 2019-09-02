@@ -1,111 +1,130 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { signUp } from "./../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
-import RenderInput from "../common/RenderInput";
-import formValidation from "../common/FormValidaton";
 
-class SignUp extends Component {
-  state = {
+import handleInputChange from "./../common/handleInputChange";
+
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import useStyles from "./styles";
+import RenderInput from "./../common/RenderInput";
+
+const SignUp = props => {
+  const initialState = {
     email: "",
     password: "",
     lastName: "",
     firstName: "",
     errors: {}
   };
-  handleChange = e => {
-    const { id, value } = e.target;
-    let errors = this.state.errors;
 
-    switch (id) {
-      case "email":
-        errors.email = formValidation(id, value) ? "" : "Enter a valid mail id";
-        break;
-      case "password":
-        errors.password = formValidation(id, value)
-          ? ""
-          : "Password should be atleast 6 characters";
-        break;
-      case "lastName":
-        errors.lastName = errors.lastName = formValidation(id, value)
-          ? ""
-          : "Enter a valid last name";
-        break;
-      case "firstName":
-        errors.firstName = errors.firstName = formValidation(id, value)
-          ? ""
-          : "Enter a valid first name";
-        break;
-      default:
-        break;
-    }
-    this.setState({ errors: errors, [id]: value });
+  const [state, setState] = useState(initialState);
+  const classes = useStyles();
+  const handleChange = e => {
+    setState(handleInputChange(e, state));
   };
 
-  doSubmit = e => {
+  const doSubmit = e => {
     e.preventDefault();
-    this.props.signUp(this.state);
+    props.signUp(state);
   };
 
-  render() {
-    const { auth, authError } = this.props;
-    if (auth.uid) return <Redirect to="/" />;
+  const { auth, authError } = props;
+  if (auth.uid) return <Redirect to="/" />;
 
-    const { errors } = this.state;
-    return (
-      <div className="container">
-        <div className=" signup-div">
-          <form onSubmit={this.doSubmit} className="ui form">
-            <RenderInput
-              type="email"
-              id="email"
-              placeholder="Enter email"
-              onChange={this.handleChange}
-              error={errors.email}
-            ></RenderInput>
-
-            <RenderInput
-              type="password"
-              id="password"
-              placeholder="Password"
-              onChange={this.handleChange}
-              error={errors.password}
-            ></RenderInput>
-
-            <div className="two fields">
+  const { errors } = state;
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign up
+        </Typography>
+        <form className={classes.form} onSubmit={doSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
               <RenderInput
-                type="text"
+                autoComplete="fname"
+                name="firstName"
                 id="firstName"
-                placeholder="First Name"
-                onChange={this.handleChange}
+                label="First Name"
+                onChange={handleChange}
                 error={errors.firstName}
               ></RenderInput>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <RenderInput
-                type="text"
                 id="lastName"
-                placeholder="Last Name"
-                onChange={this.handleChange}
+                label="Last Name"
+                name="lastName"
+                autoComplete="lname"
+                onChange={handleChange}
                 error={errors.lastName}
               ></RenderInput>
-            </div>
-            <div className="form-group ">
-              <button
-                className="btn btn-danger"
-                disabled={this.state.isDisabled}
-              >
-                Sign Up
-              </button>
-            </div>
-            <div className="form-group ">
-              {authError ? <p>{authError}</p> : null}
-            </div>
-          </form>
-        </div>
+            </Grid>
+            <Grid item xs={12}>
+              <RenderInput
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                onChange={handleChange}
+                error={errors.email}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <RenderInput
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                onChange={handleChange}
+                error={errors.password}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                label="I want to receive inspiration, marketing promotions and updates via email."
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign Up
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Link href="#" variant="body2">
+                Already have an account? Sign in
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
       </div>
-    );
-  }
-}
+      <div className="form-group ">{authError ? <p>{authError}</p> : null}</div>
+    </Container>
+  );
+};
 
 const mapStateToProps = state => {
   return {

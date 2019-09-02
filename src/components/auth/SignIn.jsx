@@ -1,79 +1,114 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { signIn } from "./../../store/actions/authActions";
-
-import formValidation from "../common/FormValidaton";
-import RenderInput from "../common/RenderInput";
+import handleInputChange from "./../common/handleInputChange";
 import { Redirect } from "react-router-dom";
-class SignIn extends Component {
-  state = {
+
+// imports for material Ui
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import useStyles from "./styles";
+import RenderInput from "./../common/RenderInput";
+
+const SignIn = props => {
+  // call styles hook
+  const classes = useStyles();
+
+  // initializestate
+  const initialState = {
     email: "",
     password: "",
     errors: {}
   };
-  handleChange = e => {
-    const { id, value } = e.target;
-    let errors = this.state.errors;
 
-    switch (id) {
-      case "email":
-        errors.email = formValidation(id, value) ? "" : "Enter a valid mail id";
-        break;
-      case "password":
-        errors.password = formValidation(id, value)
-          ? ""
-          : "Password should be atleast 6 characters";
-        break;
-      default:
-        break;
-    }
-    console.log(this.state.errors);
-    this.setState({ errors: errors, [id]: value });
+  const [state, setState] = useState(initialState);
+  const { authError, auth } = props;
+
+  // function for input change
+  const handleChange = e => {
+    setState(handleInputChange(e, state));
   };
-  doSubmit = e => {
+
+  // function for page submit
+  const doSubmit = e => {
     e.preventDefault();
-    this.props.signIn(this.state);
+    props.signIn(state);
   };
-  render() {
-    const { authError, auth } = this.props;
-    const { errors } = this.state;
-    if (auth.uid) return <Redirect to="/" />;
-    return (
-      <div className="container ">
-        <div className="signin-div">
-          <form onSubmit={this.doSubmit} className="ui form">
-            <RenderInput
-              type="email"
-              id="email"
-              placeholder="Enter email"
-              onChange={this.handleChange}
-              error={errors.email}
-            ></RenderInput>
 
-            <RenderInput
-              type="password"
-              id="password"
-              placeholder="Password"
-              onChange={this.handleChange}
-              error={errors.password}
-            ></RenderInput>
-            <button type="submit" className="btn btn-danger">
-              Log In
-            </button>
-
-            <div className="form-text">
-              {authError ? (
-                <small className="text-danger">
-                  Username or password is incorrect
-                </small>
-              ) : null}
-            </div>
-          </form>
-        </div>
+  if (auth.uid) return <Redirect to="/" />;
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <form className={classes.form} onSubmit={doSubmit}>
+          <RenderInput
+            onChange={handleChange}
+            error={state.errors.email}
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+          />
+          <RenderInput
+            onChange={handleChange}
+            error={state.errors.password}
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign In
+          </Button>
+          <div className="form-text">
+            {authError ? (
+              <small className="text-danger">
+                Username or password is incorrect
+              </small>
+            ) : null}
+          </div>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link href="#" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
       </div>
-    );
-  }
-}
+    </Container>
+  );
+};
 
 const mapStateToProps = state => {
   return {

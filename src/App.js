@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "react-widgets/dist/css/react-widgets.css";
 import Navbar from "./components/layout/Navbar";
 import Dashboard from "./components/dashboard/Dashboard";
 import { Route, Switch, Redirect } from "react-router-dom";

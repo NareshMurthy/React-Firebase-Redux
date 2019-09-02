@@ -1,29 +1,30 @@
 import React from "react";
 
+import TextField from "@material-ui/core/TextField";
 const RenderInput = props => {
-  const { type, id, placeholder, onChange, error } = props;
-  let borderBottom = "lightgray";
+  const { type, id, label, placeholder, onChange, error } = props;
 
-  error ? (borderBottom = "red") : (borderBottom = "green");
   return (
-    <div className="field mb-4">
-      <input
-        style={{
-          border: "none",
-          borderBottom: "0.8px solid " + borderBottom,
-          borderRadius: "0"
-        }}
+    <div>
+      <TextField
+        error={error}
+        margin="dense"
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
         type={type}
         id={id}
         placeholder={placeholder}
         onChange={onChange}
-        required="required"
+        label={label}
+        name={id}
+        autoComplete={id}
       />
-      <div className="form-text">
-        <small id={id} className="text-danger">
-          {error}
-        </small>
-      </div>
+
+      <small id={id} className="text-danger">
+        {error}
+      </small>
     </div>
   );
 };
