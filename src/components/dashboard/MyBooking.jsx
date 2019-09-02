@@ -3,7 +3,6 @@ import React from "react";
 import BookingCard from "./BookingCard";
 
 const MyBooking = ({ bookings, auth }) => {
-  console.log(bookings);
   return (
     <div className="booking-list section">
       {bookings &&

@@ -17,7 +17,6 @@ class UserProfile extends Component {
   };
   doSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
   };
   render() {
     return (

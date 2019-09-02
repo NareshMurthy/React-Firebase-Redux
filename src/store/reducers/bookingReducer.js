@@ -8,7 +8,6 @@ const bookingReducer = (state = initState, action) => {
       console.log("create booking err", action.err);
       return state;
     default:
-      console.log("default case");
       return state;
   }
 };

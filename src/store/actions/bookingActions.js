@@ -2,7 +2,7 @@ export const createBooking = booking => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // call to db
     const firestore = getFirestore();
-    const profile = getState().firebase.profile;
+    // const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
     firestore
       .collection("bookings")

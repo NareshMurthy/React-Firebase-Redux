@@ -10,7 +10,6 @@ const RenderInput = props => {
         error={error}
         margin="dense"
         variant="outlined"
-        margin="normal"
         required
         fullWidth
         type={type}

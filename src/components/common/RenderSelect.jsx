@@ -36,7 +36,7 @@ const RenderSelect = props => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
   const { id, options, onChange, name, value } = props;
-  console.log(id);
+
   return (
     <FormControl variant="outlined" className={classes.formControl}>
       <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">

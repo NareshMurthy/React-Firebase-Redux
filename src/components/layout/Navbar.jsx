@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Link, NavLink } from "react-router-dom";
-import { firebase } from "react-redux-firebase";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import SignInLinks from "./SignInLinks";
@@ -9,7 +8,7 @@ import SignOutLinks from "./SignOutLinks";
 
 const Navbar = props => {
   const { auth, profile } = props;
-  console.log(auth);
+
   const links = auth.uid ? <SignOutLinks profile={profile} /> : <SignInLinks />;
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-danger">

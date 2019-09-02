@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import MyBooking from "./MyBooking";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import moment from "moment";
 import { Redirect } from "react-router-dom";
 
 class Dashboard extends Component {
