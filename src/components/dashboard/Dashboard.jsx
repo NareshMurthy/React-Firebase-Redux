@@ -10,11 +10,11 @@ const Dashboard = props => {
   const { bookings, auth } = props;
   if (!auth.uid) return <Redirect to="/signin" />;
   return (
-    <div className="dashboard">
-      <div className="booking-left">
+    <div className="dashboard ">
+      <div className="booking-left container">
         <BookingForm />
       </div>
-      <div className="booking-right">
+      <div className="booking-right container">
         <MyBooking bookings={bookings} auth={auth} />
       </div>
     </div>

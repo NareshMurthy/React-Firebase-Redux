@@ -13,7 +13,7 @@ const MyBooking = ({ bookings, auth }, props) => {
           bookings.map(booking => {
             if (auth.uid === booking.userId) {
               return (
-                <div className="mt-5">
+                <div className="mt-3 mb-2">
                   <BookingCard
                     bookingId={booking.id}
                     location={booking.location}

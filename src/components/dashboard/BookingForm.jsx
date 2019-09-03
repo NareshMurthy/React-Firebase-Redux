@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 
 // import { makeStyles } from "@material-ui/core/styles";
 import useStyles from "./../auth/styles";
@@ -66,9 +67,14 @@ const BookingForm = props => {
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
         <form className={classes.form} onSubmit={doSubmit}>
-          <Grid container>
+          <Box
+            display="flex"
+            flexDirection="column"
+            flexWrap="wrap"
+            justifyContent="center"
+          >
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <Grid item xs={12}>
+              <div>
                 <KeyboardDatePicker
                   margin="normal"
                   id="date-picker-dialog"
@@ -81,8 +87,8 @@ const BookingForm = props => {
                     "aria-label": "change date"
                   }}
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </div>
+              <div>
                 <KeyboardTimePicker
                   margin="normal"
                   id="time-picker"
@@ -94,9 +100,9 @@ const BookingForm = props => {
                     "aria-label": "change time"
                   }}
                 />
-              </Grid>
+              </div>
             </MuiPickersUtilsProvider>
-            <Grid item xs={12}>
+            <div>
               <RenderSelect
                 id="course"
                 options={courseOptions}
@@ -104,8 +110,8 @@ const BookingForm = props => {
                 name="course"
                 value={state.course}
               ></RenderSelect>
-            </Grid>
-            <Grid item xs={12}>
+            </div>
+            <div>
               <RenderSelect
                 id="location"
                 options={locationOptions}
@@ -113,17 +119,19 @@ const BookingForm = props => {
                 name="location"
                 value={state.location}
               ></RenderSelect>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Book
-            </Button>
-          </Grid>
+            </div>
+            <div>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Book
+              </Button>
+            </div>
+          </Box>
         </form>
       </div>
     </Container>

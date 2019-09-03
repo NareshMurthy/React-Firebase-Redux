@@ -40,7 +40,8 @@ const RenderSelect = props => {
         </InputLabel>
         <Select
           value={value}
-          className={classes.selectWidth}
+          // className={classes.selectWidth}
+          style={{ width: "100%" }}
           onChange={onChange}
           input={<OutlinedInput labelWidth={labelWidth} name={name} id={id} />}
         >

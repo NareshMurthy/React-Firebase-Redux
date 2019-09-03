@@ -8,6 +8,7 @@
 // Variables
 $marginTop: 40px;
 $footerHeight: 40px;
+$navHeight: 8vh;
 
 // Mixins
 @mixin displayFlex {
@@ -26,34 +27,37 @@ input:focus {
   outline: none;
 }
 
-.app {
-  // width: 100%;
-  height: 100%;
+nav {
+  max-height: $navHeight;
+}
+
+.MuiFormControl-root {
+  width: 100%;
 }
 
 .dashboard {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
+  margin: 20px 20px 20px 20px;
 }
 
 .booking-right {
   background: lightgray;
   width: 100%;
-  max-height: 100vh;
   overflow: auto;
+  height: 90vh - $navHeight;
+  min-height: 500px;
 }
 
 .booking-left {
-  margin-top: $marginTop;
-  background: lightblue;
-  max-height: 100vh;
+  height: 90vh - $navHeight;
+  min-height: 500px;
 }
 
 .my-bookings {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  // overflow: auto;
 }
 
 .footer-div {
@@ -87,8 +91,22 @@ input:focus {
   @include displayFlex;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 991px) {
+  $navHeight: 28vh;
+  nav {
+    max-height: $navHeight;
+  }
+
+  .app {
+    max-height: 100vh - $navHeight;
+  }
+}
+
+@media screen and (max-width: 680px) {
   .dashboard {
     display: block;
+  }
+  .booking-left {
+    min-height: 400px;
   }
 }
