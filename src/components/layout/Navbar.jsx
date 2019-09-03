@@ -11,7 +11,7 @@ const Navbar = props => {
 
   const links = auth.uid ? <SignOutLinks profile={profile} /> : <SignInLinks />;
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-danger">
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-danger">
       <Link className="navbar-brand" to="/">
         My Project
       </Link>

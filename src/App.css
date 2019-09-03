@@ -17,50 +17,38 @@ input:focus {
   outline: none;
 }
 
-.booking-left {
-  margin-top: 40px;
+.app {
+  height: 100%;
+}
+
+.dashboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.5fr;
+      grid-template-columns: 1fr 1.5fr;
 }
 
 .booking-right {
+  background: lightgray;
+  width: 100%;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+.booking-left {
   margin-top: 40px;
+  background: lightblue;
+  max-height: 100vh;
+}
+
+.my-bookings {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-.form {
-  width: 50%;
-}
-
-.signin-div {
-  margin-top: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.signup-div {
-  margin-top: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.btn-submit {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .footer-div {
@@ -68,13 +56,16 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: white;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: white;
+  align-items: center;
   font-size: 12px;
 }
 
@@ -97,15 +88,6 @@ input:focus {
           justify-content: center;
 }
 
-.booking-cards {
-  width: 95%;
-}
-
-.form-text {
-  color: red;
-  margin-left: 15px;
-}
-
 .initials {
   text-transform: uppercase;
   border-radius: 50%;
@@ -118,5 +100,11 @@ input:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard {
+    display: block;
+  }
 }
 /*# sourceMappingURL=App.css.map */

@@ -10,21 +10,22 @@ import Footer from "./components/layout/Footer";
 import UserProfile from "./components/user/UserProfile";
 import NotFound from "./components/common/notfound";
 import BookingDetails from "./components/dashboard/BookingDetails";
-
+// <Footer />
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      <Switch>
-        <Route path="/signin" component={SignIn} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/newbooking" component={Dashboard} />
-        <Route path="/booking/:id" component={BookingDetails} />
-        <Route path="/userprofile" component={UserProfile} />
-        <Route exact path="/" component={Dashboard} />
-        <Redirect to="/notfound" component={NotFound} />
-      </Switch>
-      <Footer />
+      <div className="app">
+        <Switch>
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/newbooking" component={Dashboard} />
+          <Route path="/booking/:id" component={BookingDetails} />
+          <Route path="/userprofile" component={UserProfile} />
+          <Route exact path="/" component={Dashboard} />
+          <Redirect to="/notfound" component={NotFound} />
+        </Switch>
+      </div>
     </div>
   );
 }

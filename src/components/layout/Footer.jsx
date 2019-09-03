@@ -3,9 +3,10 @@ import Copyright from "./../common/Copyright";
 
 const Footer = () => {
   return (
-    <footer className="bg-danger  fixed-bottom ">
-      <div className="container footer-div">
-        <div className="d-flex justify-content-around">
+    <footer className="bg-danger fixed-bottom">
+      <div className="footer-div ">
+        <Copyright></Copyright>
+        <div>
           <a className="fb-ic" href="#">
             <i className="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x">
               {" "}
@@ -31,7 +32,6 @@ const Footer = () => {
               {" "}
             </i>
           </a>
-          <Copyright></Copyright>
         </div>
       </div>
     </footer>

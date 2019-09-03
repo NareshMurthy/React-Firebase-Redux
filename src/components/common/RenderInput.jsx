@@ -20,7 +20,6 @@ const RenderInput = props => {
         name={id}
         autoComplete={id}
       />
-
       <small id={id} className="text-danger">
         {error}
       </small>

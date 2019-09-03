@@ -6,22 +6,17 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-// import Select from "react-select";
-// <Select
-//   id={id}
-//   placeholder={id}
-//   options={options}
-//   onChange={e => onChange(e, id)}
-// />
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap"
   },
   formControl: {
-    margin: theme.spacing(1),
+    marginTop: theme.spacing(2),
     minWidth: 120
+  },
+  selectWidth: {
+    width: "100%"
   },
   selectEmpty: {
     marginTop: theme.spacing(2)
@@ -38,20 +33,23 @@ const RenderSelect = props => {
   const { id, options, onChange, name, value } = props;
 
   return (
-    <FormControl variant="outlined" className={classes.formControl}>
-      <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
-        {name}
-      </InputLabel>
-      <Select
-        value={value}
-        onChange={onChange}
-        input={<OutlinedInput labelWidth={labelWidth} name={name} id={id} />}
-      >
-        {options.map(curr => {
-          return <MenuItem value={curr.value}>{curr.label}</MenuItem>;
-        })}
-      </Select>
-    </FormControl>
+    <div>
+      <FormControl variant="outlined" className={classes.formControl}>
+        <InputLabel ref={inputLabel} htmlFor={name}>
+          {name}
+        </InputLabel>
+        <Select
+          value={value}
+          className={classes.selectWidth}
+          onChange={onChange}
+          input={<OutlinedInput labelWidth={labelWidth} name={name} id={id} />}
+        >
+          {options.map(curr => {
+            return <MenuItem value={curr.value}>{curr.label}</MenuItem>;
+          })}
+        </Select>
+      </FormControl>
+    </div>
   );
 };
 

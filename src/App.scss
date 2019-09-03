@@ -25,32 +25,43 @@ a {
 input:focus {
   outline: none;
 }
-.booking-left {
-  margin-top: $marginTop;
-}
-.booking-right {
-  margin-top: $marginTop;
-  display: flex;
-  justify-content: space-around;
-}
-.form {
-  width: 50%;
-}
-.signin-div {
-  margin-top: $marginTop;
-  @include displayFlex;
+
+.app {
+  // width: 100%;
+  height: 100%;
 }
 
-.signup-div {
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.booking-right {
+  background: lightgray;
+  width: 100%;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+.booking-left {
   margin-top: $marginTop;
-  @include displayFlex;
+  background: lightblue;
+  max-height: 100vh;
 }
-.btn-submit {
-  @include displayFlex;
+
+.my-bookings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  // overflow: auto;
 }
+
 .footer-div {
   height: $footerHeight;
-  @include displayFlex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   color: white;
   align-items: center;
   font-size: 12px;
@@ -66,21 +77,18 @@ input:focus {
   margin-top: 10px;
   @include displayFlex;
 }
-.booking-cards {
-  width: 95%;
-}
-
-.form-text {
-  color: red;
-  margin-left: 15px;
-}
 
 .initials {
-  // background: white;
   text-transform: uppercase;
   border-radius: 50%;
 }
 
 .author {
   @include displayFlex;
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard {
+    display: block;
+  }
 }

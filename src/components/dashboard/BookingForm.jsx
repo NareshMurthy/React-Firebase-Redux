@@ -4,10 +4,16 @@ import { createBooking } from "../../store/actions/bookingActions";
 import { Redirect } from "react-router-dom";
 import RenderSelect from "./../common/RenderSelect";
 
-// date and time imports
-
-import "date-fns";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+
+// import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "./../auth/styles";
+
+// date and time imports
+import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
@@ -15,14 +21,6 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles(theme => ({
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
-  }
-}));
 const BookingForm = props => {
   const initialState = {
     date: new Date(),
@@ -30,6 +28,7 @@ const BookingForm = props => {
     course: ""
   };
 
+  // </div><div className="date-timepickers"></div>
   // call styles hook
   const classes = useStyles();
 
@@ -64,48 +63,70 @@ const BookingForm = props => {
     { value: "Science", label: "Science" }
   ];
   return (
-    <form className={classes.form} onSubmit={doSubmit}>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Grid container justify="space-around">
-          <KeyboardDatePicker
-            margin="normal"
-            id="date-picker-dialog"
-            label="Date picker dialog"
-            format="MM/dd/yyyy"
-            value={state.date}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              "aria-label": "change date"
-            }}
-          />
-          <KeyboardTimePicker
-            margin="normal"
-            id="time-picker"
-            label="Time picker"
-            value={state.date}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              "aria-label": "change time"
-            }}
-          />
-        </Grid>
-      </MuiPickersUtilsProvider>
-      <RenderSelect
-        id="course"
-        options={courseOptions}
-        onChange={handleSelectChange}
-        name="course"
-        value={state.course}
-      ></RenderSelect>
-      <RenderSelect
-        id="location"
-        options={locationOptions}
-        onChange={handleSelectChange}
-        name="location"
-        value={state.location}
-      ></RenderSelect>
-      <button className="btn btn-danger mt-4">Book</button>
-    </form>
+    <Container component="main" maxWidth="xs">
+      <div className={classes.paper}>
+        <form className={classes.form} onSubmit={doSubmit}>
+          <Grid container>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <Grid item xs={12}>
+                <KeyboardDatePicker
+                  margin="normal"
+                  id="date-picker-dialog"
+                  label="Select date"
+                  style={{ width: "100%" }}
+                  format="MM/dd/yyyy"
+                  value={state.date}
+                  onChange={handleDateChange}
+                  KeyboardButtonProps={{
+                    "aria-label": "change date"
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <KeyboardTimePicker
+                  margin="normal"
+                  id="time-picker"
+                  label="Select time"
+                  style={{ width: "100%" }}
+                  value={state.date}
+                  onChange={handleDateChange}
+                  KeyboardButtonProps={{
+                    "aria-label": "change time"
+                  }}
+                />
+              </Grid>
+            </MuiPickersUtilsProvider>
+            <Grid item xs={12}>
+              <RenderSelect
+                id="course"
+                options={courseOptions}
+                onChange={handleSelectChange}
+                name="course"
+                value={state.course}
+              ></RenderSelect>
+            </Grid>
+            <Grid item xs={12}>
+              <RenderSelect
+                id="location"
+                options={locationOptions}
+                onChange={handleSelectChange}
+                name="location"
+                value={state.location}
+              ></RenderSelect>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Book
+            </Button>
+          </Grid>
+        </form>
+      </div>
+    </Container>
   );
 };
 
