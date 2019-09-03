@@ -111,9 +111,6 @@ nav {
   nav {
     max-height: 28vh;
   }
-  .app {
-    max-height: 72vh;
-  }
 }
 
 @media screen and (max-width: 680px) {
@@ -121,7 +118,8 @@ nav {
     display: block;
   }
   .booking-left {
-    min-height: 400px;
+    min-height: 300px;
+    height: 65vh;
   }
 }
 /*# sourceMappingURL=App.css.map */

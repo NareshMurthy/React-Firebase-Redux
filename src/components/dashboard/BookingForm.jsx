@@ -42,13 +42,43 @@ const BookingForm = props => {
   };
 
   const handleSelectChange = e => {
-    setState({
-      [e.target.name]: e.target.value
-    });
+    let newState = { ...state };
+    newState[e.target.name] = e.target.value;
+    setState(newState);
   };
   const doSubmit = e => {
     e.preventDefault();
     props.createBooking(state);
+    setState(initialState);
+  };
+
+  const enableButton = () => {
+    if (state.location && state.course) {
+      return (
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+        >
+          Book
+        </Button>
+      );
+    } else {
+      return (
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+          disabled
+        >
+          Book
+        </Button>
+      );
+    }
   };
 
   const { auth } = props;
@@ -120,17 +150,7 @@ const BookingForm = props => {
                 value={state.location}
               ></RenderSelect>
             </div>
-            <div>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Book
-              </Button>
-            </div>
+            <div>{enableButton()}</div>
           </Box>
         </form>
       </div>
