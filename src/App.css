@@ -25,24 +25,52 @@ nav {
   width: 100%;
 }
 
+.dashboard-right {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 4;
+  grid-area: dashboard-right;
+}
+
+.dashboard-left {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: dashboard-left;
+}
+
+.divider {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: divider;
+}
+
+.mychip {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: mychip;
+}
+
+.allchip {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 3;
+  grid-area: allchip;
+}
+
 .dashboard {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1.5fr;
-      grid-template-columns: 1fr 1.5fr;
+      grid-template-areas: "dashboard-left dashboard-left divider mychip allchip allchip allchip" "dashboard-left dashboard-left divider dashboard-right dashboard-right dashboard-right dashboard-right";
   margin: 20px 20px 20px 20px;
 }
 
-.booking-right {
-  background: lightgray;
+.dashboard-right {
   width: 100%;
   overflow: auto;
-  height: 82vh;
-  min-height: 500px;
-}
-
-.booking-left {
-  height: 82vh;
+  height: 77vh;
   min-height: 500px;
 }
 
@@ -54,6 +82,11 @@ nav {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.dashboard-left {
+  height: 82vh;
+  min-height: 500px;
 }
 
 .footer-div {
@@ -113,13 +146,12 @@ nav {
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 960px) {
   .dashboard {
     display: block;
   }
-  .booking-left {
-    min-height: 300px;
-    height: 65vh;
+  .dashboard-left {
+    height: 75vh;
   }
 }
 /*# sourceMappingURL=App.css.map */

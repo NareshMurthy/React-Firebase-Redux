@@ -13,7 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ShareIcon from "@material-ui/icons/Share";
-
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import Divider from "@material-ui/core/Divider";
 // styles for this page
 const useStyles = makeStyles(theme => ({
   card: {
@@ -27,27 +28,37 @@ const useStyles = makeStyles(theme => ({
 
 const BookingCard = props => {
   const classes = useStyles();
-
+  let cardBody =
+    "Session on " +
+    props.course +
+    " at " +
+    moment.unix(props.createdAt.seconds).format("MMMM Do YYYY, h:mm:ss a");
   return (
     <Card className={classes.card}>
       <CardHeader
         avatar={<Avatar className={classes.avatar}>NM</Avatar>}
-        title={props.course}
+        title="Naresh"
         subheader={moment.unix(props.createdAt.seconds).fromNow()}
       />
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum.Lorem ipsum lorem
-          ipsum.Lorem ipsum lorem ipsum.
+          {cardBody}
         </Typography>
       </CardContent>
+      <Divider />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <DeleteIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="location">
+          <i className="fas fa-location-arrow"></i> {props.location}
         </IconButton>
       </CardActions>
     </Card>

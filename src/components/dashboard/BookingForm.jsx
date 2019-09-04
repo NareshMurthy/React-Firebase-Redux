@@ -28,17 +28,15 @@ const BookingForm = props => {
     location: "",
     course: ""
   };
-
-  // </div><div className="date-timepickers"></div>
   // call styles hook
   const classes = useStyles();
 
   const [state, setState] = useState(initialState);
 
   const handleDateChange = date => {
-    setState({
-      date: date
-    });
+    let newState = { ...state };
+    newState.date = date;
+    setState(newState);
   };
 
   const handleSelectChange = e => {

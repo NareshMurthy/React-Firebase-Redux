@@ -6,9 +6,11 @@ import BookingCard from "./BookingCard";
 
 const MyBooking = ({ bookings, auth }, props) => {
   const isLoading = () => {
-    if (!bookings) {
-      return <div>No bookings...</div>;
+    if (!bookings || bookings.length === 0) {
+      return <div>No bookings available...</div>;
     } else {
+      console.log(bookings);
+      // sort based on the created time
       bookings.sort(function(a, b) {
         return b.createdAt.seconds - a.createdAt.seconds;
       });

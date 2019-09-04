@@ -35,22 +35,38 @@ nav {
   width: 100%;
 }
 
+.dashboard-right {
+  grid-area: dashboard-right;
+}
+.dashboard-left {
+  grid-area: dashboard-left;
+}
+.divider {
+  grid-area: divider;
+}
+.mychip {
+  grid-area: mychip;
+}
+.allchip {
+  grid-area: allchip;
+}
+
 .dashboard {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  // grid-template-columns: 1fr auto auto auto 1.5fr;
+
+  grid-template-areas:
+    "dashboard-left dashboard-left divider mychip allchip allchip allchip"
+    "dashboard-left dashboard-left divider dashboard-right dashboard-right dashboard-right dashboard-right";
+
   margin: 20px 20px 20px 20px;
 }
 
-.booking-right {
-  background: lightgray;
+.dashboard-right {
+  // background: lightgray;
   width: 100%;
   overflow: auto;
-  height: 90vh - $navHeight;
-  min-height: 500px;
-}
-
-.booking-left {
-  height: 90vh - $navHeight;
+  height: 85vh - $navHeight;
   min-height: 500px;
 }
 
@@ -58,6 +74,12 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.dashboard-left {
+  // background: lightblue;
+  height: 90vh - $navHeight;
+  min-height: 500px;
 }
 
 .footer-div {
@@ -98,12 +120,16 @@ nav {
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 960px) {
   .dashboard {
     display: block;
   }
-  .booking-left {
-    min-height: 300px;
-    height: 65vh;
+  .dashboard-left {
+    // min-height: 300px;
+    height: 75vh;
   }
 }
+
+// @media screen and (max-width: 680px) {
+
+// }
