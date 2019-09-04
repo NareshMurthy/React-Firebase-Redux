@@ -10,7 +10,7 @@ import Footer from "./components/layout/Footer";
 import UserProfile from "./components/user/UserProfile";
 import NotFound from "./components/common/notfound";
 import BookingDetails from "./components/dashboard/BookingDetails";
-// <Footer />
+
 function App() {
   return (
     <div>
@@ -26,6 +26,7 @@ function App() {
           <Redirect to="/notfound" component={NotFound} />
         </Switch>
       </div>
+      <Footer />
     </div>
   );
 }

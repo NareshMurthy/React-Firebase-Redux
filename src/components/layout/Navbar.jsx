@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import SignInLinks from "./SignInLinks";
 import SignOutLinks from "./SignOutLinks";
 
+import logo from "../../assets/logo.svg";
+
 const Navbar = props => {
   const { auth, profile } = props;
 
@@ -13,7 +15,7 @@ const Navbar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark sticky-top bg-danger">
       <Link className="navbar-brand" to="/">
-        My Project
+        <img src={logo} width="30px" height="30px"></img>
       </Link>
       <button
         className="navbar-toggler"

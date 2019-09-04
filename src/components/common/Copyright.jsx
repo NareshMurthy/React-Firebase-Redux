@@ -1,20 +1,23 @@
 import React from "react";
 
 import Link from "@material-ui/core/Link";
-import Typography from "@material-ui/core/Typography";
+import react from "../../assets/react.svg";
+import firebase from "../../assets/firebase.svg";
+
 const Copyright = () => {
   return (
-    <Typography variant="body2" color="textPrimary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        My Project
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {". Donate "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Patreon.
-      </Link>
-    </Typography>
+    <div className="ml-2">
+      Built with
+      <img src={react} className="ml-1 mr-1" width="25px" height="25px"></img>
+      <img
+        src={firebase}
+        className="ml-1 mr-1"
+        width="25px"
+        height="25px"
+      ></img>
+      by{"     "}
+      <Link href="#">Naresh</Link>
+    </div>
   );
 };
 
