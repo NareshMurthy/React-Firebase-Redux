@@ -16,20 +16,20 @@ const MyBooking = ({ bookings, auth }, props) => {
       });
 
       return bookings.map(booking => {
-        if (auth.uid === booking.userId) {
-          return (
-            <div className="mt-3 mb-2">
-              <BookingCard
-                bookingId={booking.id}
-                location={booking.location}
-                course={booking.course}
-                date={booking.date}
-                createdAt={booking.createdAt}
-                key={booking.id}
-              />
-            </div>
-          );
-        }
+        return auth.uid === booking.userId ? (
+          <div className="mt-3 mb-2" key={booking.id}>
+            <BookingCard
+              bookingId={booking.id}
+              location={booking.location}
+              course={booking.course}
+              date={booking.date}
+              createdAt={booking.createdAt}
+              key={booking.id}
+            />
+          </div>
+        ) : (
+          <div>You have not booked any events</div>
+        );
       });
     }
   };

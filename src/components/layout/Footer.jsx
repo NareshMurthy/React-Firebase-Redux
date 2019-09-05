@@ -1,10 +1,7 @@
 import React from "react";
 import Copyright from "./../common/Copyright";
-import { makeStyles } from "@material-ui/core/styles";
-
 import facebook from "../../assets/facebook.svg";
 import instagram from "../../assets/instagram.svg";
-
 const Footer = () => {
   return (
     <footer className="bg-dark ">
@@ -13,10 +10,22 @@ const Footer = () => {
         <div>
           Follow us on
           <a className="fb-ic mr-2 ml-2" href="#">
-            <img src={facebook} width="25px" height="25px"></img>
+            <img
+              src={facebook}
+              alt="facebooklogo"
+              width="25px"
+              height="25px"
+              href="#"
+            ></img>
           </a>
           <a className="ins-ic mr-2 ml-2" href="#">
-            <img src={instagram} width="25px" height="25px"></img>
+            <img
+              src={instagram}
+              alt="instagramlogo"
+              width="25px"
+              height="25px"
+              href="#"
+            ></img>
           </a>
         </div>
       </div>

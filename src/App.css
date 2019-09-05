@@ -3,6 +3,7 @@
   font-family: "Nunito", sans-serif;
   padding: 0;
   margin: 0;
+  outline: none !important;
 }
 
 a {
@@ -15,10 +16,6 @@ a:hover {
 
 input:focus {
   outline: none;
-}
-
-nav {
-  max-height: 8vh;
 }
 
 .app {
@@ -170,12 +167,6 @@ nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-@media screen and (max-width: 991px) {
-  nav {
-    max-height: 28vh;
-  }
 }
 
 @media screen and (max-width: 960px) {

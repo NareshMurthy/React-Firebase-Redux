@@ -39,7 +39,7 @@ const Dashboard = props => {
         <h5 className="pt-2 font-weight-bolder">Book an event</h5>
         <BookingForm />
       </div>
-      <Divider orientation="vertical" className="divider" fullWidth />
+      <Divider orientation="vertical" className="divider" />
       <h4 className="pt-2 font-weight-bolder">
         <RenderChip
           intials="NM"

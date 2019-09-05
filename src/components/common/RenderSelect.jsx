@@ -45,7 +45,11 @@ const RenderSelect = props => {
           input={<OutlinedInput labelWidth={labelWidth} name={name} id={id} />}
         >
           {options.map(curr => {
-            return <MenuItem value={curr.value}>{curr.label}</MenuItem>;
+            return (
+              <MenuItem key={curr.value} value={curr.value}>
+                {curr.label}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>

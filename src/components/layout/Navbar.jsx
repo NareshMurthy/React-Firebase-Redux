@@ -15,7 +15,7 @@ const Navbar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark sticky-top bg-danger">
       <Link className="navbar-brand" to="/">
-        <img src={logo} width="30px" height="30px"></img>
+        <img src={logo} alt="companylogo" width="30px" height="30px"></img>
       </Link>
       <button
         className="navbar-toggler"

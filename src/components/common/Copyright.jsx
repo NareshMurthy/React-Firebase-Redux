@@ -8,15 +8,24 @@ const Copyright = () => {
   return (
     <div className="ml-2">
       Built with
-      <img src={react} className="ml-1 mr-1" width="25px" height="25px"></img>
+      <img
+        src={react}
+        alt="reactlogo"
+        className="ml-1 mr-1"
+        width="25px"
+        height="25px"
+      ></img>
       <img
         src={firebase}
+        alt="firebaselogo"
         className="ml-1 mr-1"
         width="25px"
         height="25px"
       ></img>
       by{"     "}
-      <Link href="#">Naresh</Link>
+      <Link href="#" style={{ color: "rgb(3, 207, 244)" }}>
+        Naresh
+      </Link>
     </div>
   );
 };
