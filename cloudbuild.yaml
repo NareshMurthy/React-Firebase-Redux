@@ -1,14 +1,21 @@
 steps:
-  # Install
+  # setup
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - kms
+      - decrypt
+      - --ciphertext-file=.env.enc
+      - --plaintext-file=.env
+      - --location=global
+      - --keyring=myReactProject
+      - --key=cloudbuild-env
+
+    # Install
   - name: "gcr.io/cloud-builders/npm"
     args: ["install"]
-  # build
+    # build
   - name: "gcr.io/cloud-builders/npm"
     args: ["run-script", "build"]
-  # deploy
-  - name: "gcr.io/$PROJECT_ID/firebase"
-    args: ["deploy"]
-tags: ["latest"]
-# images:
-# - 'gcr.io/$PROJECT_ID/firebase'
-# tags: ["latest"]
+    # deploy
+  - name: "gcr.io/$PROJECT_ID/npm"
+    args: ["run", "deploy"]
