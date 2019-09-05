@@ -1,4 +1,6 @@
-## Firebase <img React-Firebase-Redux\src\assets\firebase.svg widht="30px" height="30px"/>
+## Firebase <img src="/src/assets/firebase.svg" widht="30px" height="30px"/>
 
 <br>
-https://react-redux-firebase-1994.firebaseapp.com
+This project is built with React, Redux and Firebase
+<br>
+<b>Demo:<b> https://react-redux-firebase-1994.firebaseapp.com
