@@ -57,7 +57,7 @@ const Dashboard = props => {
           active={state.whichEventsToShow === "allevents"}
         ></RenderChip>
       </h4>
-      <div className="dashboard-right container">{conditionalEvents()}</div>
+      <div className="dashboard-right">{conditionalEvents()}</div>
     </div>
   );
 };

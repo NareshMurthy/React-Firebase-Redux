@@ -5,27 +5,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import facebook from "../../assets/facebook.svg";
 import instagram from "../../assets/instagram.svg";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh"
-  },
-  main: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2)
-  },
-  footer: {
-    padding: theme.spacing(2),
-    marginTop: "auto",
-    backgroundColor: "white"
-  }
-}));
-
 const Footer = () => {
-  const classes = useStyles();
   return (
-    <footer className="bg-dark fixed-bottom">
+    <footer className="bg-dark ">
       <div className="footer-div ">
         <Copyright className="ml-2"></Copyright>
         <div>

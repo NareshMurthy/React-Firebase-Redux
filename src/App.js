@@ -13,20 +13,18 @@ import BookingDetails from "./components/dashboard/BookingDetails";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <div className="app">
-        <Switch>
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/newbooking" component={Dashboard} />
-          <Route path="/booking/:id" component={BookingDetails} />
-          <Route path="/userprofile" component={UserProfile} />
-          <Route exact path="/" component={Dashboard} />
-          <Redirect to="/notfound" component={NotFound} />
-        </Switch>
-      </div>
-      <Footer />
+    <div className="app">
+      <Navbar className="app1" />
+      <Switch className="app2">
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/newbooking" component={Dashboard} />
+        <Route path="/booking/:id" component={BookingDetails} />
+        <Route path="/userprofile" component={UserProfile} />
+        <Route exact path="/" component={Dashboard} />
+        <Redirect to="/notfound" component={NotFound} />
+      </Switch>
+      <Footer className="app3" />
     </div>
   );
 }

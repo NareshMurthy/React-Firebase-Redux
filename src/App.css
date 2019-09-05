@@ -21,14 +21,28 @@ nav {
   max-height: 8vh;
 }
 
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .MuiFormControl-root {
   width: 100%;
 }
 
 .dashboard-right {
   -ms-grid-row: 2;
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 4;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
   grid-area: dashboard-right;
 }
 
@@ -36,45 +50,53 @@ nav {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: dashboard-left;
 }
 
 .divider {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
-  -ms-grid-column: 3;
+  -ms-grid-column: 2;
   grid-area: divider;
 }
 
 .mychip {
   -ms-grid-row: 1;
-  -ms-grid-column: 4;
+  -ms-grid-column: 3;
   grid-area: mychip;
 }
 
 .allchip {
   -ms-grid-row: 1;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 3;
+  -ms-grid-column: 4;
   grid-area: allchip;
 }
 
 .dashboard {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "dashboard-left dashboard-left divider mychip allchip allchip allchip" "dashboard-left dashboard-left divider dashboard-right dashboard-right dashboard-right dashboard-right";
-  margin: 20px 20px 20px 20px;
+  padding-top: 20px;
+      grid-template-areas: "dashboard-left  divider    mychip                allchip                     ." "dashboard-left  divider    dashboard-right       dashboard-right      dashboard-right";
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+  -ms-grid-columns: 1.5fr auto 1fr 1fr 1fr;
+      grid-template-columns: 1.5fr auto 1fr 1fr 1fr;
 }
 
-.dashboard-right {
+.dashboard-left {
   width: 100%;
-  overflow: auto;
-  height: 77vh;
   min-height: 500px;
 }
 
-.my-bookings {
+.dashboard-right {
+  background: lightgray;
+  width: 100%;
+  height: 70vh;
+  overflow: auto;
+}
+
+.my-bookings,
+.all-bookings {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,13 +106,19 @@ nav {
       justify-content: space-around;
 }
 
-.dashboard-left {
-  height: 82vh;
-  min-height: 500px;
+.card-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 380px;
 }
 
 .footer-div {
-  height: 40px;
+  height: 6vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -131,6 +159,10 @@ nav {
   border-radius: 50%;
 }
 
+.card-location {
+  font-size: 19px;
+}
+
 .author {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -152,6 +184,9 @@ nav {
   }
   .dashboard-left {
     height: 75vh;
+  }
+  .divider {
+    display: none;
   }
 }
 /*# sourceMappingURL=App.css.map */

@@ -18,9 +18,8 @@ import Divider from "@material-ui/core/Divider";
 // styles for this page
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345
+    maxWidth: 380
   },
-
   avatar: {
     backgroundColor: red[500]
   }
@@ -40,14 +39,13 @@ const BookingCard = props => {
         title="Naresh"
         subheader={moment.unix(props.createdAt.seconds).fromNow()}
       />
-
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {cardBody}
         </Typography>
       </CardContent>
       <Divider />
-      <CardActions disableSpacing>
+      <div className="card-footer">
         <IconButton aria-label="add to favorites">
           <DeleteIcon />
         </IconButton>
@@ -58,9 +56,10 @@ const BookingCard = props => {
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="location">
-          <i className="fas fa-location-arrow"></i> {props.location}
+          <i className="fas fa-location-arrow" />
+          <div>{props.location}</div>
         </IconButton>
-      </CardActions>
+      </div>
     </Card>
   );
 };
