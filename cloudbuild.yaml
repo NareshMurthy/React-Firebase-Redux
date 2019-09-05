@@ -8,4 +8,7 @@ steps:
   # deploy
   - name: "gcr.io/$PROJECT_ID/firebase"
     args: ["deploy"]
-    tags: ["default"]
+tags: ["latest"]
+# images:
+# - 'gcr.io/$PROJECT_ID/firebase'
+# tags: ["latest"]
