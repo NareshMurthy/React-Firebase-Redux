@@ -10,19 +10,12 @@ steps:
   #     - --keyring=myReactProject
   #     - --key=cloudbuild-env
 
-  # # Install
-  # - name: "gcr.io/cloud-builders/npm"
-  #   args: ["install"]
-  #   # build
-  # - name: "gcr.io/cloud-builders/npm"
-  #   args: ["run-script", "build"]
-  #   # deploy
-  # - name: "gcr.io/$PROJECT_ID/firebase"
-  #   args: ["deploy"]
-
-  - name: "gcr.io/cloud-builder/docker"
-    args:
-      ["build", "-t", "gcr.io/$PROJECT_ID/firebase", "./dockerfiles/Dockerfile"]
-
-  - name: "gcr.io/cloud-builder/firebase"
+  # Install
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+    # build
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run-script", "build"]
+    # deploy
+  - name: "gcr.io/$PROJECT_ID/firebase"
     args: ["deploy"]
