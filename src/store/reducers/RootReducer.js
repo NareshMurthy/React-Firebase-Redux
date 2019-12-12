@@ -1,12 +1,12 @@
 import authReducer from "./authReducer";
-import bookingReducer from "./bookingReducer";
+import jobFormReducer from "./jobFormReducer";
 import { combineReducers } from "redux";
 import { firestoreReducer } from "redux-firestore";
 import { firebaseReducer } from "react-redux-firebase";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  booking: bookingReducer,
+  job: jobFormReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer
 });

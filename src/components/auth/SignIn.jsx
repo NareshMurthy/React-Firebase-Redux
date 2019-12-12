@@ -4,25 +4,17 @@ import { signIn } from "./../../store/actions/authActions";
 import handleInputChange from "./../common/handleInputChange";
 import { Redirect } from "react-router-dom";
 
-// imports for material Ui
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import { NavLink } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import useStyles from "./styles";
-import RenderInput from "./../common/RenderInput";
-
+import {
+  Button,
+  Form,
+  Grid,
+  Icon,
+  Header,
+  Message,
+  Segment
+} from "semantic-ui-react";
 const SignIn = props => {
-  // call styles hook
-  const classes = useStyles();
-
-  // initializestate
   const initialState = {
     email: "",
     password: "",
@@ -45,68 +37,65 @@ const SignIn = props => {
 
   if (auth.uid) return <Redirect to="/" />;
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form} onSubmit={doSubmit}>
-          <RenderInput
-            onChange={handleChange}
-            error={state.errors.email}
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-          />
-          <RenderInput
-            onChange={handleChange}
-            error={state.errors.password}
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          <div className="form-text">
-            {authError ? (
-              <small className="text-danger">
-                Username or password is incorrect
-              </small>
-            ) : null}
-          </div>
-          <Grid container>
-            <Grid item xs>
-              <NavLink to="/notfound" variant="body2">
-                Forgot password?
-              </NavLink>
-            </Grid>
-            <Grid item>
-              <NavLink to="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </NavLink>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+    <Grid textAlign="center" style={{ height: "92vh" }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as="h2" color="teal" textAlign="center">
+          Log-in to your account
+        </Header>
+        <Form size="large" onSubmit={doSubmit}>
+          <Segment stacked>
+            <Form.Input
+              onChange={handleChange}
+              // error={state.errors.email}
+              id="email"
+              fluid
+              icon="user"
+              iconPosition="left"
+              name="email"
+              autoComplete="email"
+              placeholder="Email"
+            />
+            <Form.Input
+              onChange={handleChange}
+              // error={state.errors.password}
+              icon="lock"
+              iconPosition="left"
+              name="password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              placeholder="Password"
+            />
+
+            <div className="form-text">
+              {authError ? (
+                <small className="text-danger">
+                  Username or password is incorrect
+                </small>
+              ) : null}
+            </div>
+
+            <Button animated fluid size="large" color="teal">
+              <Button.Content visible>Login</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow right" />
+              </Button.Content>
+            </Button>
+          </Segment>
+        </Form>
+        <Message warning>
+          Don't have an account?
+          <NavLink to="/signup" variant="body2">
+            Sign Up
+          </NavLink>
+        </Message>
+        <Message warning>
+          <NavLink to="/notfound" variant="body2">
+            Forgot password?
+          </NavLink>
+        </Message>
+      </Grid.Column>
+    </Grid>
   );
 };
 
@@ -122,7 +111,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

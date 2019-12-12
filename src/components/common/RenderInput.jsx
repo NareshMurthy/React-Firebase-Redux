@@ -1,29 +1,17 @@
 import React from "react";
-
-import TextField from "@material-ui/core/TextField";
+import { Form } from "semantic-ui-react";
 const RenderInput = props => {
-  const { type, id, label, placeholder, onChange, error } = props;
+  const { type, id, placeholder, onChange, value, name } = props;
 
   return (
-    <div>
-      <TextField
-        error={error}
-        margin="dense"
-        variant="outlined"
-        required
-        fullWidth
-        type={type}
-        id={id}
-        placeholder={placeholder}
-        onChange={onChange}
-        label={label}
-        name={id}
-        autoComplete={id}
-      />
-      <small id={id} className="text-danger">
-        {error}
-      </small>
-    </div>
+    <Form.Input
+      type={type}
+      id={id}
+      name={name}
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
+    />
   );
 };
 

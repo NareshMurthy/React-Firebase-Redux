@@ -7,8 +7,13 @@ const SignOutLinks = props => {
   return (
     <ul className="navbar-nav mr-5 ">
       <li className="nav-item ">
-        <NavLink className="nav-link " to="/newbooking">
-          New Booking
+        <NavLink className="nav-link " to="/postjob">
+          Post a Job
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link " to="/temp">
+          Become a FL
         </NavLink>
       </li>
       <li className="nav-item ">
@@ -31,7 +36,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(SignOutLinks);
+export default connect(null, mapDispatchToProps)(SignOutLinks);
