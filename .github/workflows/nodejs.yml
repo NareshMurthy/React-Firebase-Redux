@@ -19,11 +19,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, build and firebase deploy
+      - name: GitHub Action for Firebase
+        uses: w9jds/firebase-action@v1.1.0
+      - name: npm install, build
         run: |
           npm install
           npm run build
-          firebase login --token "$FIREBASE_TOKEN",
-          firebase deploy --token "$FIREBASE_TOKEN",
+          firebase login --token "$FIREBASE_TOKEN"
+          firebase deploy --token "$FIREBASE_TOKEN"
         env:
           CI: false
