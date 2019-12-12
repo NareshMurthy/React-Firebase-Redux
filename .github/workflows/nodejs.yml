@@ -26,4 +26,4 @@ jobs:
           firebase login --token "$FIREBASE_TOKEN",
           firebase deploy --token "$FIREBASE_TOKEN",
         env:
-          CI: true
+          CI: false
