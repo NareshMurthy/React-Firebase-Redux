@@ -29,3 +29,4 @@ jobs:
           firebase deploy --token "$FIREBASE_TOKEN"
         env:
           CI: false
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
