@@ -1,19 +1,16 @@
-## Firebase <img src="/src/assets/firebase.svg" widht="30px" height="30px"/>
+# Firebase App ![Logo](./src/assets/firebase.svg =30x30) [![License](https://badgen.net/github/license/micromatch/micromatch)](https://www.nlicesnesepmjs.com)
 
-<br>
-This project is built with
-<ul>
-<li>React</li>
-<li>Redux</li>
-<li>Firebase</li>
-</ul>
-<br>
+## This project is built with
 
-Design
+[![React](https://badgen.net/badge/React/16.8.6/orange)](https://www.npmjs.com/package/react)
+[![Redux](https://badgen.net/badge/Redux/4.0.4/blue)](https://www.npmjs.com/package/redux)
+[![License](https://badgen.net/badge/CI/GitHubActions/green)](https://github.com/features/actions)
+[![License](https://badgen.net/badge/Deploy/Firebase/ffcb2d)](https://firebase.google.com/)
 
-             app
-    navbar      signin/signup
-    post a Job    list of FL
+## App Design
 
-<br>
-<b>Demo:<b> https://react-redux-firebase-1994.firebaseapp.com
+![AppDesign](./src/assets/AppDesign.svg)
+
+### Demo:
+
+https://react-redux-firebase-1994.firebaseapp.com
