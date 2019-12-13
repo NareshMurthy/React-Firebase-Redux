@@ -1,4 +1,4 @@
-# Firebase App ![Logo](/src/assets/firebase.svg =30x30) [![License](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/NareshMurthy/React-Firebase-Redux/blob/master/LICENSE)
+# Firebase App ![Logo](src/assets/firebase.svg =30x30) [![License](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/NareshMurthy/React-Firebase-Redux/blob/master/LICENSE)
 
 ## This project is built with
 
@@ -9,11 +9,7 @@
 
 ## App Design
 
-![AppDesign](./src/assets/AppDesign.svg =100x100)
-
-![AppDesign](src/assets/AppDesign.svg =100x100)
-
-![AppDesign](src/assets/AppDesign.svg)
+![AppDesign](src/assets/AppDesign.svg){: width=150 height=150 style="test-align:center;"}
 
 ### Demo:
 
