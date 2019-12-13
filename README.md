@@ -1,4 +1,4 @@
-# Firebase App <img src="https://github.com/NareshMurthy/React-Firebase-Redux/tree/master/src/assets/firebase.svg" width="30px" height="30px" alt="logo"/> [![License](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/NareshMurthy/React-Firebase-Redux/blob/master/LICENSE)
+# Firebase App <img src="src/assets/firebase.png" width="30px" height="30px" alt="logo"/> [![License](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/NareshMurthy/React-Firebase-Redux/blob/master/LICENSE)
 
 ## This project is built with
 
@@ -9,7 +9,13 @@
 
 ## App Design
 
-<img src="https://github.com/NareshMurthy/React-Firebase-Redux/tree/master/src/assets/AppDesign.svg" width="300px" height="300px" alt="AppDesign"/>
+![AppDesign](src/assets/AppDesign.png)
+
+![AppDesign](src/assets/firebase.png)
+
+<img src="src/assets/firebase.png" width="30px" height="30px" alt="logo"/>
+
+<img src="src/assets/AppDesign.png" width="30px" height="30px" alt="logo"/>
 
 ### Demo:
 
