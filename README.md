@@ -9,7 +9,11 @@
 
 ## App Design
 
-![AppDesign](/src/assets/AppDesign.svg)
+![AppDesign](./src/assets/AppDesign.svg =100x100)
+
+![AppDesign](src/assets/AppDesign.svg =100x100)
+
+![AppDesign](src/assets/AppDesign.svg)
 
 ### Demo:
 
