@@ -11,6 +11,27 @@ const SignOutLinks = props => {
           Post a Job
         </NavLink>
       </li>
+      <li className="nav-item dropdown initials">
+        <a
+          className="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {props.profile.initials}
+        </a>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <NavLink className=" dropdown-item" to="/userprofile">
+            {props.profile.initials}
+          </NavLink>
+          <NavLink className=" dropdown-item" to="/myjobs">
+            My Jobs
+          </NavLink>
+        </div>
+      </li>
       <li className="nav-item">
         <NavLink className="nav-link " to="/temp">
           Become a FL
@@ -21,15 +42,9 @@ const SignOutLinks = props => {
           Logout
         </a>
       </li>
-      <li className="nav-item initials">
-        <NavLink className="nav-link " to="/userprofile">
-          {props.profile.initials}
-        </NavLink>
-      </li>
     </ul>
   );
 };
-
 const mapDispatchToProps = dispatch => {
   return {
     signOut: () => dispatch(signOut())

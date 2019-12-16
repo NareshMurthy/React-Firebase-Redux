@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "semantic-ui-css/semantic.min.css";
 import Navbar from "./components/layout/Navbar";
@@ -12,8 +11,8 @@ import UserProfile from "./components/user/UserProfile";
 import NotFound from "./components/common/notfound";
 import JobDetails from "./components/dashboard/JobDetails";
 
-import PaymentForm from "./components/dashboard/PaymentForm";
 import PostNewJob from "./components/dashboard/PostNewJob";
+import JobsPostedByMe from "./components/dashboard/JobsPostedByMe";
 
 function App() {
   return (
@@ -25,6 +24,7 @@ function App() {
         <Route exact path="/postjob" component={PostNewJob} />
         <Route exact path="/jobs/:id" component={JobDetails} />
         <Route exact path="/userprofile" component={UserProfile} />
+        <Route exact path="/myjobs" component={JobsPostedByMe} />
         <Route exact path="/" component={Dashboard} />
         <Redirect to="/notfound" component={NotFound} />
       </Switch>
@@ -49,11 +49,8 @@ function App() {
         }
       `}</style>
       <style jsx>{`
-        .navbar {
-          height: 8vh;
-        }
         .app {
-          height: 92vh;
+          height: 90vh;
         }
       `}</style>
     </div>

@@ -2,7 +2,6 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
 import SignInLinks from "./SignInLinks";
 import SignOutLinks from "./SignOutLinks";
 
