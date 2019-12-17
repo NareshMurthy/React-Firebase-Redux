@@ -1,35 +1,77 @@
 import React from "react";
 import Copyright from "./../common/Copyright";
-import facebook from "../../assets/facebook.svg";
-import instagram from "../../assets/instagram.svg";
+
+import logo from "../../assets/logo.svg";
+import {
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Image,
+  List,
+  Segment
+} from "semantic-ui-react";
 const Footer = () => {
   return (
-    <footer className="bg-dark ">
-      <div className="footer-div ">
-        <Copyright className="ml-2"></Copyright>
-        <div>
-          Follow us on
-          <a className="fb-ic mr-2 ml-2" href="#">
-            <img
-              src={facebook}
-              alt="facebooklogo"
-              width="25px"
-              height="25px"
-              href="#"
-            ></img>
-          </a>
-          <a className="ins-ic mr-2 ml-2" href="#">
-            <img
-              src={instagram}
-              alt="instagramlogo"
-              width="25px"
-              height="25px"
-              href="#"
-            ></img>
-          </a>
-        </div>
-      </div>
-    </footer>
+    <Segment
+      inverted
+      vertical
+      style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
+    >
+      <Container textAlign="center">
+        <Grid divided inverted stackable>
+          <Grid.Column width={3}>
+            <Header inverted as="h4" content="Group 1" />
+            <List link inverted>
+              <List.Item as="a">Link One</List.Item>
+              <List.Item as="a">Link Two</List.Item>
+              <List.Item as="a">Link Three</List.Item>
+              <List.Item as="a">Link Four</List.Item>
+            </List>
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <Header inverted as="h4" content="Group 2" />
+            <List link inverted>
+              <List.Item as="a">Link One</List.Item>
+              <List.Item as="a">Link Two</List.Item>
+              <List.Item as="a">Link Three</List.Item>
+              <List.Item as="a">Link Four</List.Item>
+            </List>
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <Header inverted as="h4" content="Group 3" />
+            <List link inverted>
+              <List.Item as="a">Link One</List.Item>
+              <List.Item as="a">Link Two</List.Item>
+              <List.Item as="a">Link Three</List.Item>
+              <List.Item as="a">Link Four</List.Item>
+            </List>
+          </Grid.Column>
+          <Grid.Column width={7}>
+            <Header inverted as="h4" content="Footer Header" />
+
+            <Copyright classNameName="ml-2"></Copyright>
+          </Grid.Column>
+        </Grid>
+
+        <Divider inverted section />
+        <Image centered size="mini" src={logo} />
+        <List horizontal inverted divided link size="small">
+          <List.Item as="a" href="#">
+            Site Map
+          </List.Item>
+          <List.Item as="a" href="#">
+            Contact Us
+          </List.Item>
+          <List.Item as="a" href="#">
+            Terms and Conditions
+          </List.Item>
+          <List.Item as="a" href="#">
+            Privacy Policy
+          </List.Item>
+        </List>
+      </Container>
+    </Segment>
   );
 };
 

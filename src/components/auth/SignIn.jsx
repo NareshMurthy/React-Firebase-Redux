@@ -5,15 +5,7 @@ import handleInputChange from "./../common/handleInputChange";
 import { Redirect } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
-import {
-  Button,
-  Form,
-  Grid,
-  Icon,
-  Header,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Button, Icon, Message } from "semantic-ui-react";
 const SignIn = props => {
   const initialState = {
     email: "",
@@ -26,76 +18,99 @@ const SignIn = props => {
 
   // function for input change
   const handleChange = e => {
+    // console.log(state);
     setState(handleInputChange(e, state));
   };
 
   // function for page submit
   const doSubmit = e => {
     e.preventDefault();
+    console.log(state);
     props.signIn(state);
   };
 
-  if (auth.uid) return <Redirect to="/" />;
+  if (auth.uid) return <Redirect to="/dashboard" />;
   return (
-    <Grid textAlign="center" style={{ height: "92vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="teal" textAlign="center">
-          Log-in to your account
-        </Header>
-        <Form size="large" onSubmit={doSubmit}>
-          <Segment stacked>
-            <Form.Input
-              onChange={handleChange}
-              // error={state.errors.email}
-              id="email"
-              fluid
-              icon="user"
-              iconPosition="left"
-              name="email"
-              autoComplete="email"
-              placeholder="Email"
-            />
-            <Form.Input
-              onChange={handleChange}
-              // error={state.errors.password}
-              icon="lock"
-              iconPosition="left"
-              name="password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              placeholder="Password"
-            />
+    <div className="signin">
+      <form className=" form-group" onSubmit={doSubmit}>
+        <div className="text-center mb-4">
+          <Icon
+            className="mb-3 mt-3"
+            color="teal"
+            size="massive"
+            name="unlock"
+          ></Icon>
 
-            <div className="form-text">
-              {authError ? (
-                <small className="text-danger">
-                  Username or password is incorrect
-                </small>
-              ) : null}
-            </div>
+          <h1 className="h3 mb-3 font-weight-normal">Log-in to your account</h1>
+          <p>
+            Build form controls with floating labels via the{" "}
+            <code>:placeholder-shown</code> pseudo-element.{" "}
+          </p>
+        </div>
 
-            <Button animated fluid size="large" color="teal">
-              <Button.Content visible>Login</Button.Content>
-              <Button.Content hidden>
-                <Icon name="arrow right" />
-              </Button.Content>
-            </Button>
-          </Segment>
-        </Form>
-        <Message warning>
-          Don't have an account?
-          <NavLink to="/signup" variant="body2">
-            Sign Up
-          </NavLink>
-        </Message>
-        <Message warning>
-          <NavLink to="/notfound" variant="body2">
-            Forgot password?
-          </NavLink>
-        </Message>
-      </Grid.Column>
-    </Grid>
+        <div className="form-label-group mb-3">
+          <label htmlFor="email">Email address</label>
+          <input
+            type="email"
+            className="form-control"
+            required
+            autoFocus
+            onChange={handleChange}
+            // error={state.errors.email}
+            id="email"
+            name="email"
+            placeholder="Email"
+            value={state.email}
+          />
+        </div>
+
+        <div className="form-label-group  mb-3">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            className="form-control"
+            placeholder="Password"
+            required
+            value={state.password}
+            onChange={handleChange}
+            // error={state.errors.password}
+            name="password"
+          />
+        </div>
+
+        <Button className="mb-3" animated fluid size="large" color="teal">
+          <Button.Content visible>Login</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow right" />
+          </Button.Content>
+        </Button>
+      </form>
+      <Message warning>
+        Don't have an account?
+        <NavLink to="/signup" variant="body2">
+          Sign Up
+        </NavLink>
+      </Message>
+      <Message warning>
+        <NavLink to="/notfound" variant="body2">
+          Forgot password?
+        </NavLink>
+      </Message>
+
+      <style jsx>{`
+        .signin {
+          margin: auto;
+          width: 30%;
+        }
+
+        @media screen and (max-width: 600px) {
+          .signin {
+            width: 50%;
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 

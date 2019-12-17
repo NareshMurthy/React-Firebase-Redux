@@ -3,15 +3,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { signUp } from "./../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Message,
-  Icon,
-  Segment
-} from "semantic-ui-react";
+import { Button, Message, Icon } from "semantic-ui-react";
 import handleInputChange from "./../common/handleInputChange";
 
 import { NavLink } from "react-router-dom";
@@ -36,78 +28,101 @@ const SignUp = props => {
   };
 
   const { auth, authError } = props;
-  if (auth.uid) return <Redirect to="/" />;
+  if (auth.uid) return <Redirect to="/dashboard" />;
 
   const { errors } = state;
   return (
-    <Grid textAlign="center" style={{ height: "92vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="teal" textAlign="center">
-          Create a account
-        </Header>
-        <Form size="large" onSubmit={doSubmit}>
-          <Segment stacked>
-            <Form.Input
-              autoComplete="fname"
-              name="firstName"
-              fluid
-              id="firstName"
-              onChange={handleChange}
-              placeholder="First Name"
-              // error={errors.firstName}
-            ></Form.Input>
+    <div className="signup">
+      <form className=" form-group" onSubmit={doSubmit}>
+        <div className="text-center mb-4">
+          <Icon
+            className="mb-3 mt-3"
+            color="teal"
+            size="massive"
+            name="unlock"
+          ></Icon>
+          <h1 className="h3 mb-3 font-weight-normal">Log-in to your account</h1>
+          <p>
+            Build form controls with floating labels via the{" "}
+            <code>:placeholder-shown</code> pseudo-element.{" "}
+          </p>
+        </div>
+        <input
+          autoComplete="fname"
+          type="text"
+          name="firstName"
+          id="firstName"
+          onChange={handleChange}
+          placeholder="First Name"
+          required
+          className="form-control mb-3"
+          value={state.firstName}
+          autoFocus
+          // error={errors.firstName}
+        />
+        <input
+          id="lastName"
+          name="lastName"
+          required
+          type="text"
+          autoComplete="lname"
+          placeholder="Last Name"
+          onChange={handleChange}
+          value={state.lastName}
+          className="form-control mb-3"
+        />
 
-            <Form.Input
-              id="lastName"
-              name="lastName"
-              fluid
-              autoComplete="lname"
-              placeholder="Last Name"
-              onChange={handleChange}
-              // error={errors.lastName}
-            ></Form.Input>
-            <Form.Input
-              onChange={handleChange}
-              // error={state.errors.email}
-              id="email"
-              fluid
-              icon="user"
-              iconPosition="left"
-              name="email"
-              autoComplete="email"
-              placeholder="Email"
-            />
-            <Form.Input
-              onChange={handleChange}
-              // error={state.errors.password}
-              icon="lock"
-              iconPosition="left"
-              name="password"
-              type="password"
-              id="password"
-              placeholder="Password"
-              autoComplete="current-password"
-            />
+        <input
+          type="email"
+          className="form-control mb-3"
+          required
+          onChange={handleChange}
+          // error={state.errors.email}
+          id="email"
+          name="email"
+          placeholder="Email"
+          value={state.email}
+        />
+        <input
+          type="password"
+          id="password"
+          className="form-control mb-3"
+          placeholder="Password"
+          required
+          value={state.password}
+          onChange={handleChange}
+          // error={state.errors.password}
+          name="password"
+        />
+      </form>
+      <Button animated fluid size="large" color="teal" className="mb-3">
+        <Button.Content visible>Signup</Button.Content>
+        <Button.Content hidden>
+          <Icon name="arrow right" />
+        </Button.Content>
+      </Button>
 
-            <Button animated fluid size="large" color="teal">
-              <Button.Content visible>Signup</Button.Content>
-              <Button.Content hidden>
-                <Icon name="arrow right" />
-              </Button.Content>
-            </Button>
-          </Segment>
-          <div className="form-group ">
-            {authError ? <p>{authError}</p> : null}
-          </div>
-        </Form>
-        <Message warning>
-          Already have an account?
-          <NavLink to="/signin" variant="body2">
-            Sign in
-          </NavLink>
-        </Message>
-      </Grid.Column>
-    </Grid>
+      <div className="form-group ">{authError ? <p>{authError}</p> : null}</div>
+
+      <Message warning>
+        Already have an account?
+        <NavLink to="/signin" variant="body2">
+          Sign in
+        </NavLink>
+      </Message>
+      <style jsx>{`
+        .signup {
+          margin: auto;
+          width: 30%;
+        }
+
+        @media screen and (max-width: 600px) {
+          .signup {
+            width: 50%;
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 
