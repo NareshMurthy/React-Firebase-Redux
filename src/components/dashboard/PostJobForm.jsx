@@ -8,9 +8,9 @@ import {
 import { Redirect } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Button, Form, Icon } from "semantic-ui-react";
-import RenderInput from "../common/RenderInput";
+import { Button, Form, Input, Icon } from "semantic-ui-react";
 
+import "./styles.css";
 const PostJobForm = props => {
   let { auth, job, handleChange, handleDateChange, doSubmit } = props;
   let {
@@ -51,14 +51,14 @@ const PostJobForm = props => {
     <div>
       <Form onSubmit={doSubmit} className="job-form">
         <Form.Group widths="two">
-          <RenderInput
+          <Form.Input
             type="text"
             id="shortDescription"
             name="shortDescription"
             onChange={handleChange}
             value={shortDescription}
             placeholder="Short description"
-          ></RenderInput>
+          ></Form.Input>
 
           <DatePicker
             todayButton="Today"
@@ -76,35 +76,26 @@ const PostJobForm = props => {
           value={description}
         />
         <Form.Group widths="two">
-          <RenderInput
+          <Form.Input
             type="text"
             id="attachments"
             name="attachments"
             onChange={handleChange}
             value={attachments}
             placeholder="Attachments"
-          ></RenderInput>
-          <RenderInput
+          ></Form.Input>
+          <Form.Input
             type="text"
             id="freelancer"
             name="freelancer"
             onChange={handleChange}
             value={freelancer}
             placeholder="Choose a lancer"
-          ></RenderInput>
+          ></Form.Input>
         </Form.Group>
 
         {enableButton()}
       </Form>
-
-      <style jsx>
-        {`
-          .job-form {
-            margin: 10% auto;
-            width: 50%;
-          }
-        `}
-      </style>
     </div>
   );
 };

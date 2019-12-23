@@ -22,9 +22,7 @@ const Copyright = () => {
         height="25px"
       ></img>
       by{"     "}
-      <Link href="#" style={{ color: "rgb(3, 207, 244)" }}>
-        Naresh
-      </Link>
+      <span style={{ color: "rgb(3, 207, 244)" }}>Naresh</span>
     </div>
   );
 };

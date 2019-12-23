@@ -6,6 +6,9 @@ import { Redirect } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
 import { Button, Icon, Message } from "semantic-ui-react";
+
+import "./styles.css";
+
 const SignIn = props => {
   const initialState = {
     email: "",
@@ -42,10 +45,6 @@ const SignIn = props => {
           ></Icon>
 
           <h1 className="h3 mb-3 font-weight-normal">Log-in to your account</h1>
-          <p>
-            Build form controls with floating labels via the{" "}
-            <code>:placeholder-shown</code> pseudo-element.{" "}
-          </p>
         </div>
 
         <div className="form-label-group mb-3">
@@ -97,19 +96,6 @@ const SignIn = props => {
           Forgot password?
         </NavLink>
       </Message>
-
-      <style jsx>{`
-        .signin {
-          margin: auto;
-          width: 30%;
-        }
-
-        @media screen and (max-width: 600px) {
-          .signin {
-            width: 50%;
-          }
-        }
-      `}</style>
     </div>
   );
 };

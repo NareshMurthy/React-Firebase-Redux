@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+import "./styles.css";
 const PaymentForm = props => {
   const initialState = {
     cvc: "",
@@ -119,8 +121,6 @@ const PaymentForm = props => {
           Continue to checkout
         </button>
       </form>
-
-      <style jsx>{``}</style>
     </div>
   );
 };

@@ -1,7 +1,10 @@
 import React from "react";
 import FreeLancerCard from "./FreeLancerCard";
-import ReactCardCarousel from "react-card-carousel";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
+import "./styles.css";
 const FreeLancers = ({ freelancers, auth }) => {
   freelancers = [
     {
@@ -35,15 +38,42 @@ const FreeLancers = ({ freelancers, auth }) => {
       lastName: "Jolie",
       role: "Data Science",
       skills: ["Python", "ML", "AI"]
+    },
+    {
+      age: 24,
+      available: true,
+      firstName: "Angelina",
+      lastName: "Jolie",
+      role: "Data Science",
+      skills: ["Python", "ML", "AI"]
+    },
+    {
+      age: 24,
+      available: true,
+      firstName: "Angelina",
+      lastName: "Jolie",
+      role: "Data Science",
+      skills: ["Python", "ML", "AI"]
     }
   ];
 
+  var settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500,
+    slidesToScroll: 1,
+    autoplay: true,
+    swipeToSlide: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true
+  };
+
   const Cards = freelancers => {
-    return freelancers.map(freelancer => (
-      <FreeLancerCard
-        key={freelancer.id}
-        freelancers={freelancer}
-      ></FreeLancerCard>
+    return freelancers.map((freelancer, index) => (
+      <FreeLancerCard key={index} freelancers={freelancer}></FreeLancerCard>
     ));
   };
 
@@ -52,25 +82,11 @@ const FreeLancers = ({ freelancers, auth }) => {
       return <div>No FreeLancers available...</div>;
     } else {
       console.log(freelancers);
-      return (
-        <ReactCardCarousel autoplay={true} autoplay_speed={2500} spread="wide">
-          {Cards(freelancers)}
-        </ReactCardCarousel>
-      );
+      return <Slider {...settings}>{Cards(freelancers)}</Slider>;
     }
   };
 
-  return (
-    <div className="freelancers-carousel">
-      {isLoading()}
-      <style jsx>{`
-        .freelancers-carousel {
-          height: 100%;
-          widht: 100%;
-        }
-      `}</style>
-    </div>
-  );
+  return isLoading();
 };
 
 export default FreeLancers;

@@ -1,7 +1,7 @@
 import React from "react";
 import Copyright from "./../common/Copyright";
 
-import logo from "../../assets/logo.svg";
+// import logo from "../../assets/logo.svg";
 import {
   Container,
   Divider,
@@ -21,7 +21,7 @@ const Footer = () => {
       <Container textAlign="center">
         <Grid divided inverted stackable>
           <Grid.Column width={3}>
-            <Header inverted as="h4" content="Group 1" />
+            <Header inverted as="h4" content="Features" />
             <List link inverted>
               <List.Item as="a">Link One</List.Item>
               <List.Item as="a">Link Two</List.Item>
@@ -30,7 +30,7 @@ const Footer = () => {
             </List>
           </Grid.Column>
           <Grid.Column width={3}>
-            <Header inverted as="h4" content="Group 2" />
+            <Header inverted as="h4" content="Resources" />
             <List link inverted>
               <List.Item as="a">Link One</List.Item>
               <List.Item as="a">Link Two</List.Item>
@@ -39,7 +39,7 @@ const Footer = () => {
             </List>
           </Grid.Column>
           <Grid.Column width={3}>
-            <Header inverted as="h4" content="Group 3" />
+            <Header inverted as="h4" content="About" />
             <List link inverted>
               <List.Item as="a">Link One</List.Item>
               <List.Item as="a">Link Two</List.Item>
@@ -48,14 +48,15 @@ const Footer = () => {
             </List>
           </Grid.Column>
           <Grid.Column width={7}>
-            <Header inverted as="h4" content="Footer Header" />
-
-            <Copyright classNameName="ml-2"></Copyright>
+            <h6>
+              <Copyright classNameName="ml-2"></Copyright>
+            </h6>
+            <small>&copy; 2017-2018</small>
           </Grid.Column>
         </Grid>
-
         <Divider inverted section />
-        <Image centered size="mini" src={logo} />
+        <h4>Get It Done</h4>
+        {/* <Image centered size="mini" src={logo} /> */}
         <List horizontal inverted divided link size="small">
           <List.Item as="a" href="#">
             Site Map

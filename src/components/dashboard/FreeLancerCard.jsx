@@ -1,11 +1,13 @@
 import React from "react";
 import { Button, Card, Image } from "semantic-ui-react";
 import faker from "faker";
+
+import "./styles.css";
 const FreeLancerCard = ({ freelancers }) => {
   let { firstName, skills, age, available, role } = freelancers;
   let image = faker.image.imageUrl();
   let description = () => {
-    return skills.map(skill => <strong>{skill} </strong>);
+    return skills.map((skill, index) => <strong key={index}>{skill} </strong>);
   };
 
   let extra = () => {
@@ -19,17 +21,13 @@ const FreeLancerCard = ({ freelancers }) => {
   return (
     <div className="freelancer-card">
       <Card
-        color="teal"
+        color="red"
         image={image}
         header={firstName}
         meta={role}
         description={description()}
         extra={extra()}
       />
-      <style jsx>{`
-        .freelancer-card {
-        }
-      `}</style>
     </div>
   );
 };

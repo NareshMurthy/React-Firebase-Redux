@@ -1,0 +1,20 @@
+.signin {
+  margin: auto;
+  width: 30%;
+}
+
+@media screen and (max-width: 600px) {
+  .signin {
+    width: 50%;
+  }
+}
+.signup {
+  margin: auto;
+  width: 30%;
+}
+
+@media screen and (max-width: 600px) {
+  .signup {
+    width: 50%;
+  }
+}

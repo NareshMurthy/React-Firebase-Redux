@@ -1,0 +1,32 @@
+.freelancer-card {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 19.7%;
+          flex: 0 0 19.7%;
+  text-align: center;
+  padding: 10px;
+  margin: 2px 2px;
+  -webkit-transition: -webkit-transform 300ms ease 100ms;
+  transition: -webkit-transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms, -webkit-transform 300ms ease 100ms;
+}
+
+.freelancer-card:hover ~ .freelancer-card {
+  -webkit-transform: translateX(15%);
+          transform: translateX(15%);
+}
+
+.freelancer-card:hover {
+  -webkit-transform: scale(1.1) !important;
+          transform: scale(1.1) !important;
+}
+
+.step {
+  margin: 1%;
+}
+
+.job-form {
+  margin: 10% auto;
+  width: 50%;
+}
+/*# sourceMappingURL=styles.css.map */

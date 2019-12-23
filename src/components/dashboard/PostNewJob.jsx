@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Step, Icon } from "semantic-ui-react";
 import PostJobForm from "./PostJobForm";
 
+import "./styles.css";
 import PaymentForm from "./PaymentForm";
 const PostNewJob = props => {
   const initialState = {
@@ -51,8 +52,8 @@ const PostNewJob = props => {
   };
 
   const renderStep = () => {
-    return steps.map(step => (
-      <Step active={step.active}>
+    return steps.map((step, index) => (
+      <Step key={index} active={step.active}>
         <Icon name={step.icon} />
         <Step.Content>
           <Step.Title>{step.title}</Step.Title>
@@ -70,14 +71,6 @@ const PostNewJob = props => {
         </Step.Group>
         {renderForm()}
       </div>
-
-      <style jsx>
-        {`
-          .step {
-            margin: 1%;
-          }
-        `}
-      </style>
     </div>
   );
 };

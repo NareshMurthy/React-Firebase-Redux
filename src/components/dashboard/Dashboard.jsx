@@ -4,17 +4,15 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import FreeLancers from "./FreeLancers";
+
+import "./styles.css";
+
 const Dashboard = props => {
   const { auth, freelancers } = props;
   if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <div className="dashboard">
       <FreeLancers freelancers={freelancers} auth={auth}></FreeLancers>
-
-      <style jsx>{`
-        .dashboard {
-        }
-      `}</style>
     </div>
   );
 };

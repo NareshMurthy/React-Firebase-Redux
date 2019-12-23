@@ -7,7 +7,7 @@ import { Button, Message, Icon } from "semantic-ui-react";
 import handleInputChange from "./../common/handleInputChange";
 
 import { NavLink } from "react-router-dom";
-
+import "./styles.css";
 const SignUp = props => {
   const initialState = {
     email: "",
@@ -41,11 +41,7 @@ const SignUp = props => {
             size="massive"
             name="unlock"
           ></Icon>
-          <h1 className="h3 mb-3 font-weight-normal">Log-in to your account</h1>
-          <p>
-            Build form controls with floating labels via the{" "}
-            <code>:placeholder-shown</code> pseudo-element.{" "}
-          </p>
+          <h1 className="h3 mb-3 font-weight-normal">Create an account</h1>
         </div>
         <input
           autoComplete="fname"
@@ -110,18 +106,6 @@ const SignUp = props => {
           Sign in
         </NavLink>
       </Message>
-      <style jsx>{`
-        .signup {
-          margin: auto;
-          width: 30%;
-        }
-
-        @media screen and (max-width: 600px) {
-          .signup {
-            width: 50%;
-          }
-        }
-      `}</style>
     </div>
   );
 };

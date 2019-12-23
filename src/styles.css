@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+* {
+  font-family: "Nunito", sans-serif;
+  padding: 0;
+  margin: 0;
+  outline: none !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none;
+}
+
+.app {
+  height: 90vh;
+}
+/*# sourceMappingURL=styles.css.map */

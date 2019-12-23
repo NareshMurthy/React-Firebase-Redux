@@ -6,6 +6,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import JobCard from "./JobCard";
 
+import "./styles.css";
 const JobsPostedByMe = ({ jobs, auth }) => {
   if (!auth.uid) return <Redirect to="/signin" />;
   const isLoading = () => {

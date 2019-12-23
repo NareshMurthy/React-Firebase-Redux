@@ -14,7 +14,7 @@ import JobDetails from "./components/dashboard/JobDetails";
 import PostNewJob from "./components/dashboard/PostNewJob";
 import JobsPostedByMe from "./components/dashboard/JobsPostedByMe";
 import LandingPage from "./components/LandingPage/LandingPage";
-
+import "./styles.css";
 function App() {
   return (
     <React.Fragment>
@@ -31,31 +31,6 @@ function App() {
         <Redirect to="/notfound" component={NotFound} />
       </Switch>
       <Footer></Footer>
-      <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
-        * {
-          font-family: "Nunito", sans-serif;
-          padding: 0;
-          margin: 0;
-          outline: none !important;
-        }
-        a {
-          text-decoration: none;
-        }
-
-        a:hover {
-          cursor: pointer;
-        }
-
-        input:focus {
-          outline: none;
-        }
-      `}</style>
-      <style jsx>{`
-        .app {
-          height: 90vh;
-        }
-      `}</style>
     </React.Fragment>
   );
 }

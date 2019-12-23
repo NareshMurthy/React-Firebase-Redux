@@ -3,6 +3,7 @@ import React from "react";
 import { Card, Icon } from "semantic-ui-react";
 import moment from "moment";
 
+import "./styles.css";
 const JobCard = ({
   jobId,
   shortDescription,
