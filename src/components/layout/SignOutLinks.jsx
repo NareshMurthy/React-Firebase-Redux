@@ -2,40 +2,53 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { signOut } from "./../../store/actions/authActions";
-import { Dropdown, Menu } from "semantic-ui-react";
+import { Dropdown, Image } from "semantic-ui-react";
+import faker from "faker";
+import "./styles.css";
+
 const SignOutLinks = props => {
+  const trigger = (
+    <span>
+      <Image avatar src={faker.internet.avatar()} /> {props.profile.initials}
+    </span>
+  );
+
+  const options = [
+    {
+      key: "user",
+      text: <NavLink to="/userprofile">{props.profile.initials}</NavLink>,
+      icon: "user"
+    },
+    {
+      key: "settings",
+      text: <NavLink to="/myjobs">My Jobs</NavLink>,
+      icon: "settings"
+    },
+    {
+      key: "sign-out",
+      text: <a onClick={props.signOut}>Sign Out</a>,
+      icon: "sign out"
+    }
+  ];
+
   return (
-    <React.Fragment>
+    <ul>
       <NavLink to="/postjob">
-        <Menu.Item>Post a Job</Menu.Item>
+        <li>Post a Job</li>
       </NavLink>
 
       <NavLink to="/temp">
-        <Menu.Item> Become a FL</Menu.Item>
+        <li> Become a FL</li>
       </NavLink>
 
-      <a onClick={props.signOut}>
-        <Menu.Item>Logout</Menu.Item>
-      </a>
-
-      <Dropdown item simple text={props.profile.initials}>
-        <Dropdown.Menu>
-          <NavLink to="/myjobs">
-            <Dropdown.Item style={{ color: "black" }}>My Jobs</Dropdown.Item>
-          </NavLink>
-
-          <NavLink to="/userprofile">
-            <Dropdown.Item style={{ color: "black" }}>
-              {props.profile.initials}
-            </Dropdown.Item>
-          </NavLink>
-
-          <Dropdown.Divider />
-          <Dropdown.Header>Settings</Dropdown.Header>
-          <Dropdown.Item>List Item</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-    </React.Fragment>
+      <Dropdown
+        closeOnEscape
+        closeOnBlur
+        options={options}
+        trigger={trigger}
+        icon={null}
+      ></Dropdown>
+    </ul>
   );
 };
 const mapDispatchToProps = dispatch => {

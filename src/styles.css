@@ -1,9 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 * {
-  font-family: "Nunito", sans-serif;
-  padding: 0;
   margin: 0;
-  outline: none !important;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background-color: #febe7e;
+  color: #4b304e;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.app {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 97vh;
 }
 
 a {
@@ -12,13 +26,5 @@ a {
 
 a:hover {
   cursor: pointer;
-}
-
-input:focus {
-  outline: none;
-}
-
-.app {
-  height: 90vh;
 }
 /*# sourceMappingURL=styles.css.map */

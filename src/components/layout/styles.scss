@@ -1,0 +1,38 @@
+.sticky-top {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 3vw;
+  background-color: rgb(75, 48, 78);
+  color: rgb(236, 114, 99);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+a {
+  color: rgb(236, 114, 99);
+}
+a:hover {
+  color: rgb(254, 190, 126);
+}
+.sticky-top h4 {
+  border-right: 1px solid rgb(236, 114, 99);
+  text-align: left;
+  width: 10vw;
+  margin-left: 20%;
+}
+ul {
+  width: 20vw;
+  display: flex;
+  margin: 0;
+  margin-right: 3%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+li {
+  color: rgb(236, 114, 99);
+}
+
+li:hover {
+  color: rgb(254, 190, 126);
+}

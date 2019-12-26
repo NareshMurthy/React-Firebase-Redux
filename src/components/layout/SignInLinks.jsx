@@ -1,16 +1,17 @@
 import React from "react";
-import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
-
+import "./styles.css";
 const SignInLinks = () => {
   return (
     <React.Fragment>
-      <NavLink to="/signin">
-        <Menu.Item>Login</Menu.Item>
-      </NavLink>
-      <NavLink to="/signup">
-        <Menu.Item>Sign Up</Menu.Item>
-      </NavLink>
+      <ul>
+        <NavLink to="/signin">
+          <li>Login</li>
+        </NavLink>
+        <NavLink to="/signup">
+          <li>Sign Up</li>
+        </NavLink>
+      </ul>
     </React.Fragment>
   );
 };

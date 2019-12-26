@@ -5,14 +5,19 @@ import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import FreeLancers from "./FreeLancers";
 
-import "./styles.css";
+// import "./styles.css";
 
 const Dashboard = props => {
-  const { auth, freelancers } = props;
+  const { auth, freelancers, width } = props;
+
   if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <div className="dashboard">
-      <FreeLancers freelancers={freelancers} auth={auth}></FreeLancers>
+      <FreeLancers
+        freelancers={freelancers}
+        auth={auth}
+        width={width}
+      ></FreeLancers>
     </div>
   );
 };

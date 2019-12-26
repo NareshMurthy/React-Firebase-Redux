@@ -1,19 +1,37 @@
+.freelancer-card .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0;
+  margin: 10px;
+}
+
+.freelancer-card .info p {
+  margin: 1px;
+  font-weight: bolder;
+}
+
 .freelancer-card {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 19.7%;
-          flex: 0 0 19.7%;
-  text-align: center;
+  width: 90%;
+  height: 90%;
   padding: 10px;
-  margin: 2px 2px;
+  margin: 10px 10px;
   -webkit-transition: -webkit-transform 300ms ease 100ms;
   transition: -webkit-transform 300ms ease 100ms;
   transition: transform 300ms ease 100ms;
   transition: transform 300ms ease 100ms, -webkit-transform 300ms ease 100ms;
-}
-
-.freelancer-card:hover ~ .freelancer-card {
-  -webkit-transform: translateX(15%);
-          transform: translateX(15%);
 }
 
 .freelancer-card:hover {

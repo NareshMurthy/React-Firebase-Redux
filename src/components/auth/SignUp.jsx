@@ -35,13 +35,13 @@ const SignUp = props => {
     <div className="signup">
       <form className=" form-group" onSubmit={doSubmit}>
         <div className="text-center mb-4">
-          <Icon
-            className="mb-3 mt-3"
-            color="teal"
-            size="massive"
-            name="unlock"
-          ></Icon>
-          <h1 className="h3 mb-3 font-weight-normal">Create an account</h1>
+          <h1 className=" mt-5 mb-2">
+            We are <span>Lorem Ipsum</span>
+          </h1>
+
+          <h3 className="mb-3 font-weight-normal">
+            Log-in to your account to do this this that
+          </h3>
         </div>
         <input
           autoComplete="fname"
@@ -91,21 +91,27 @@ const SignUp = props => {
           name="password"
         />
       </form>
-      <Button animated fluid size="large" color="teal" className="mb-3">
-        <Button.Content visible>Signup</Button.Content>
-        <Button.Content hidden>
-          <Icon name="arrow right" />
-        </Button.Content>
-      </Button>
+      <button>
+        <span>Sign Up</span>
+        <Icon
+          style={{ color: "rgb(254, 190, 126)" }}
+          name="angle double right"
+        ></Icon>
+      </button>
+      <h4>Or login in with</h4>
+      <Button.Group widths="3" className="mt-1 ">
+        <Button circular color="facebook" icon="facebook" />
+        <Button circular color="linkedin" icon="linkedin" />
+        <Button circular color="google plus" icon="google plus" />
+      </Button.Group>
+      <div className="form-group">{authError ? <p>{authError}</p> : null}</div>
 
-      <div className="form-group ">{authError ? <p>{authError}</p> : null}</div>
-
-      <Message warning>
-        Already have an account?
+      <div className="message">
+        <span>Already have an account? </span>
         <NavLink to="/signin" variant="body2">
           Sign in
         </NavLink>
-      </Message>
+      </div>
     </div>
   );
 };

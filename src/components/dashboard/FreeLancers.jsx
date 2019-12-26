@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 import "./styles.css";
-const FreeLancers = ({ freelancers, auth }) => {
+const FreeLancers = ({ freelancers, auth, width }) => {
   freelancers = [
     {
       age: 21,
@@ -72,16 +72,17 @@ const FreeLancers = ({ freelancers, auth }) => {
   };
 
   const Cards = freelancers => {
-    return freelancers.map((freelancer, index) => (
-      <FreeLancerCard key={index} freelancers={freelancer}></FreeLancerCard>
-    ));
+    if (width > 800) {
+      return freelancers.map((freelancer, index) => (
+        <FreeLancerCard key={index} freelancers={freelancer}></FreeLancerCard>
+      ));
+    }
   };
 
   const isLoading = () => {
     if (!freelancers || freelancers.length === 0) {
       return <div>No FreeLancers available...</div>;
     } else {
-      console.log(freelancers);
       return <Slider {...settings}>{Cards(freelancers)}</Slider>;
     }
   };

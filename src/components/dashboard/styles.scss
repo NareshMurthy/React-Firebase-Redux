@@ -1,16 +1,28 @@
+.freelancer-card .info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 10px;
+}
+.freelancer-card .info p {
+  margin: 1px;
+  font-weight: bolder;
+}
 .freelancer-card {
-  flex: 0 0 19.7%;
-  text-align: center;
+  width: 90%;
+  height: 90%;
   padding: 10px;
-  margin: 2px 2px;
+  margin: 10px 10px;
   transition: transform 300ms ease 100ms;
 }
-.freelancer-card:hover ~ .freelancer-card {
-  transform: translateX(15%);
-}
+
 .freelancer-card:hover {
   transform: scale(1.1) !important;
 }
+
 .step {
   margin: 1%;
 }

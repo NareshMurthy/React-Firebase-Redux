@@ -35,40 +35,39 @@ const SignIn = props => {
   if (auth.uid) return <Redirect to="/dashboard" />;
   return (
     <div className="signin">
-      <form className=" form-group" onSubmit={doSubmit}>
-        <div className="text-center mb-4">
-          <Icon
-            className="mb-3 mt-3"
-            color="teal"
-            size="massive"
-            name="unlock"
-          ></Icon>
+      <form className=" " autoComplete="off" onSubmit={doSubmit}>
+        <div className=" mb-4">
+          <h1 className=" mt-5 mb-2">
+            We are <span>Lorem Ipsum</span>
+          </h1>
 
-          <h1 className="h3 mb-3 font-weight-normal">Log-in to your account</h1>
+          <h3 className="mb-3 font-weight-normal">
+            Log-in to your account to do this this that
+          </h3>
         </div>
 
-        <div className="form-label-group mb-3">
-          <label htmlFor="email">Email address</label>
+        <div className="mb-3">
+          {/* <label htmlFor="email">Email address</label> */}
           <input
             type="email"
-            className="form-control"
+            // className="form-control"
             required
             autoFocus
             onChange={handleChange}
             // error={state.errors.email}
             id="email"
             name="email"
-            placeholder="Email"
+            placeholder="Username"
             value={state.email}
           />
         </div>
 
-        <div className="form-label-group  mb-3">
-          <label htmlFor="password">Password</label>
+        <div className="  mb-3">
+          {/* <label htmlFor="password">Password</label> */}
           <input
             type="password"
             id="password"
-            className="form-control"
+            // className="form-control"
             placeholder="Password"
             required
             value={state.password}
@@ -78,24 +77,31 @@ const SignIn = props => {
           />
         </div>
 
-        <Button className="mb-3" animated fluid size="large" color="teal">
-          <Button.Content visible>Login</Button.Content>
-          <Button.Content hidden>
-            <Icon name="arrow right" />
-          </Button.Content>
-        </Button>
+        <button>
+          <span>Login</span>
+          <Icon
+            style={{ color: "rgb(254, 190, 126)" }}
+            name="angle double right"
+          ></Icon>
+        </button>
+        <h4>Or login in with</h4>
+        <Button.Group widths="3" className="mt-1 ">
+          <Button circular color="facebook" icon="facebook" />
+          <Button circular color="linkedin" icon="linkedin" />
+          <Button circular color="google plus" icon="google plus" />
+        </Button.Group>
       </form>
-      <Message warning>
-        Don't have an account?
+      <div className="message">
+        <span>Don't have an account? </span>
         <NavLink to="/signup" variant="body2">
-          Sign Up
+          Create an account
         </NavLink>
-      </Message>
-      <Message warning>
+      </div>
+      <div className="message">
         <NavLink to="/notfound" variant="body2">
           Forgot password?
         </NavLink>
-      </Message>
+      </div>
     </div>
   );
 };

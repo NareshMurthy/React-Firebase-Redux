@@ -1,6 +1,6 @@
 import React from "react";
 import Copyright from "./../common/Copyright";
-
+import "./styles.css";
 // import logo from "../../assets/logo.svg";
 import {
   Container,
@@ -14,12 +14,15 @@ import {
 const Footer = () => {
   return (
     <Segment
-      inverted
       vertical
-      style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
+      style={{
+        margin: "5em 0em 0em",
+        padding: "5em 0em",
+        backgroundColor: "rgb(149, 140, 107)"
+      }}
     >
       <Container textAlign="center">
-        <Grid divided inverted stackable>
+        <Grid divided stackable>
           <Grid.Column width={3}>
             <Header inverted as="h4" content="Features" />
             <List link inverted>
