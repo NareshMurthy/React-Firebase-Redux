@@ -33,7 +33,7 @@ const SignUp = props => {
   const { errors } = state;
   return (
     <div className="signup">
-      <form className=" form-group" onSubmit={doSubmit}>
+      <form autoComplete="off" onSubmit={doSubmit}>
         <div className="text-center mb-4">
           <h1 className=" mt-5 mb-2">
             We are <span>Lorem Ipsum</span>
@@ -44,14 +44,13 @@ const SignUp = props => {
           </h3>
         </div>
         <input
-          autoComplete="fname"
           type="text"
           name="firstName"
           id="firstName"
           onChange={handleChange}
           placeholder="First Name"
           required
-          className="form-control mb-3"
+          className="mb-3"
           value={state.firstName}
           autoFocus
           // error={errors.firstName}
@@ -61,16 +60,15 @@ const SignUp = props => {
           name="lastName"
           required
           type="text"
-          autoComplete="lname"
           placeholder="Last Name"
           onChange={handleChange}
           value={state.lastName}
-          className="form-control mb-3"
+          className=" mb-3"
         />
 
         <input
           type="email"
-          className="form-control mb-3"
+          className="mb-3"
           required
           onChange={handleChange}
           // error={state.errors.email}
@@ -82,7 +80,7 @@ const SignUp = props => {
         <input
           type="password"
           id="password"
-          className="form-control mb-3"
+          className=" mb-3"
           placeholder="Password"
           required
           value={state.password}
@@ -99,12 +97,12 @@ const SignUp = props => {
         ></Icon>
       </button>
       <h4>Or login in with</h4>
-      <Button.Group widths="3" className="mt-1 ">
+      <Button.Group widths="3" className="mt-1 mb-3">
         <Button circular color="facebook" icon="facebook" />
         <Button circular color="linkedin" icon="linkedin" />
         <Button circular color="google plus" icon="google plus" />
       </Button.Group>
-      <div className="form-group">{authError ? <p>{authError}</p> : null}</div>
+      <div className="">{authError ? <p>{authError}</p> : null}</div>
 
       <div className="message">
         <span>Already have an account? </span>

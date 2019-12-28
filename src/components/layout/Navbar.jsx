@@ -6,11 +6,21 @@ import SignInLinks from "./SignInLinks";
 import SignOutLinks from "./SignOutLinks";
 import "./styles.css";
 // import logo from "../../assets/logo.svg";
-import { Container, Menu, Dropdown } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 
 const Navbar = props => {
   const { auth, profile, width } = props;
   const links = auth.uid ? <SignOutLinks profile={profile} /> : <SignInLinks />;
+
+  let initialState = { height: "7vh" };
+  const [state, setState] = useState(initialState);
+
+  const expandNavbar = () => {
+    state.height === "7vh"
+      ? setState({ height: "37vh" })
+      : setState({ height: "7vh" });
+  };
+
   const renderNavbar = () => {
     return width > 800 ? (
       <div className="sticky-top">
@@ -20,22 +30,13 @@ const Navbar = props => {
         {links}
       </div>
     ) : (
-      <Menu className="sticky-top" inverted>
-        <Dropdown
-          item
-          simple
-          text="Get It Done"
-          inverted
-          className="mobile-navbar"
-        >
-          <Dropdown.Menu>
-            <NavLink to="/">
-              <Dropdown.Item>Home</Dropdown.Item>
-            </NavLink>
-            {links}
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
+      <div className="sticky-top" style={{ ...state }}>
+        <div className="header">
+          <Icon name="bars" onClick={expandNavbar}></Icon>
+          <h3>Get It Done</h3>
+        </div>
+        <div className="mobile-nav">{links}</div>
+      </div>
     );
   };
 

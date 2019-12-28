@@ -1,38 +1,88 @@
 .sticky-top {
   box-sizing: border-box;
   width: 100vw;
-  height: 3vw;
+  height: 7vh;
   background-color: rgb(75, 48, 78);
   color: rgb(236, 114, 99);
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-a {
-  color: rgb(236, 114, 99);
-}
-a:hover {
-  color: rgb(254, 190, 126);
-}
-.sticky-top h4 {
-  border-right: 1px solid rgb(236, 114, 99);
-  text-align: left;
-  width: 10vw;
-  margin-left: 20%;
-}
-ul {
-  width: 20vw;
-  display: flex;
-  margin: 0;
-  margin-right: 3%;
-  align-items: center;
-  justify-content: space-evenly;
+  font-size: 1rem;
+  h4 {
+    border-right: 1px solid rgb(236, 114, 99);
+    text-align: left;
+    width: 10vw;
+    margin-left: 20%;
+  }
+  ul {
+    width: auto;
+    display: flex;
+    margin: 0 5rem;
+  }
+
+  a {
+    padding: 0 1rem;
+    color: rgb(236, 114, 99);
+  }
+
+  a:hover {
+    color: rgb(254, 190, 126);
+  }
 }
 
-li {
-  color: rgb(236, 114, 99);
-}
+@media screen and (max-width: 800px) {
+  .sticky-top {
+    width: 100vw;
+    box-sizing: border-box;
+    display: block;
+    background-color: rgb(254, 190, 126);
+    transition: height 0.2s linear;
+    overflow: hidden;
+    height: 7vh;
 
-li:hover {
-  color: rgb(254, 190, 126);
+    .header {
+      box-sizing: border-box;
+      height: 7vh;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        margin: 0;
+        text-align: left;
+        width: 100%;
+        margin-left: 2rem;
+        font-size: 1.5rem;
+        color: rgb(75, 48, 78);
+      }
+    }
+
+    i {
+      color: rgb(75, 48, 78);
+      text-align: center;
+      font-size: 1.5rem;
+      width: 20vw;
+    }
+    .mobile-nav {
+      width: 100vw;
+      background-color: rgb(75, 48, 78);
+    }
+
+    ul {
+      width: 100vw;
+      box-sizing: border-box;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    a {
+      font-size: 1.4rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgb(254, 190, 126);
+      width: 100%;
+      text-align: center;
+    }
+  }
 }

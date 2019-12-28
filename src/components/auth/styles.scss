@@ -1,20 +1,11 @@
 .signin {
   margin: auto;
-  width: 30%;
+  width: 30vw;
 }
 
 .signup {
   margin: auto;
-  width: 30%;
-}
-
-@media screen and (max-width: 600px) {
-  .signin {
-    width: 50%;
-  }
-  .signup {
-    width: 50%;
-  }
+  width: 30vw;
 }
 
 .icon {
@@ -88,5 +79,14 @@ button {
   a:hover {
     color: black;
     text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .signin {
+    width: 80vw;
+  }
+  .signup {
+    width: 80vw;
   }
 }

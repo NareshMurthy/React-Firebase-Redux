@@ -35,7 +35,7 @@ const SignIn = props => {
   if (auth.uid) return <Redirect to="/dashboard" />;
   return (
     <div className="signin">
-      <form className=" " autoComplete="off" onSubmit={doSubmit}>
+      <form autoComplete="off" onSubmit={doSubmit}>
         <div className=" mb-4">
           <h1 className=" mt-5 mb-2">
             We are <span>Lorem Ipsum</span>
@@ -85,7 +85,7 @@ const SignIn = props => {
           ></Icon>
         </button>
         <h4>Or login in with</h4>
-        <Button.Group widths="3" className="mt-1 ">
+        <Button.Group widths="3" className="mt-1 mb-3">
           <Button circular color="facebook" icon="facebook" />
           <Button circular color="linkedin" icon="linkedin" />
           <Button circular color="google plus" icon="google plus" />
