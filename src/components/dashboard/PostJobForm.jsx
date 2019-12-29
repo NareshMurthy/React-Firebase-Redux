@@ -6,10 +6,8 @@ import {
   doSubmit
 } from "../../store/actions/JobFormAction";
 import { Redirect } from "react-router-dom";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { Button, Form, Input, Icon } from "semantic-ui-react";
-
+import { DatePicker } from "react-md";
+import { Button, Form, Icon } from "semantic-ui-react";
 import "./styles.css";
 const PostJobForm = props => {
   let { auth, job, handleChange, handleDateChange, doSubmit } = props;
@@ -20,10 +18,17 @@ const PostJobForm = props => {
     attachments,
     freelancer
   } = job;
+
   const enableButton = () => {
     if (description && shortDescription) {
       return (
-        <Button inverted icon labelPosition="right" size="large" color="red">
+        <Button
+          className="mt-4"
+          icon
+          labelPosition="right"
+          size="large"
+          color="red"
+        >
           Post
           <Icon name="right arrow" />
         </Button>
@@ -31,7 +36,7 @@ const PostJobForm = props => {
     } else {
       return (
         <Button
-          inverted
+          className="mt-4"
           icon
           labelPosition="right"
           size="large"
@@ -49,53 +54,61 @@ const PostJobForm = props => {
 
   return (
     <div>
-      <Form onSubmit={doSubmit} className="job-form">
+      <form onSubmit={doSubmit} className="job-form">
         <Form.Group widths="two">
-          <Form.Input
+          <input
             type="text"
             id="shortDescription"
             name="shortDescription"
             onChange={handleChange}
             value={shortDescription}
             placeholder="Short description"
-          ></Form.Input>
+          ></input>
 
-          <DatePicker
+          {/* <DatePicker
             todayButton="Today"
             isClearable
             selected={finishDate}
             onChange={date => handleDateChange(date)}
             placeholderText="Choose a date"
+          /> */}
+          <DatePicker
+            id="appointment-date-auto"
+            label="Select an appointment date"
+            className="md-cell"
           />
         </Form.Group>
-        <Form.TextArea
+        <textarea
           id="description"
           placeholder="Tell us more about the job..."
           name="description"
+          rows="3"
+          spellcheck="false"
           onChange={handleChange}
           value={description}
-        />
+        ></textarea>
+
         <Form.Group widths="two">
-          <Form.Input
+          <input
             type="text"
             id="attachments"
             name="attachments"
             onChange={handleChange}
             value={attachments}
             placeholder="Attachments"
-          ></Form.Input>
-          <Form.Input
+          ></input>
+          <input
             type="text"
             id="freelancer"
             name="freelancer"
             onChange={handleChange}
             value={freelancer}
             placeholder="Choose a lancer"
-          ></Form.Input>
+          ></input>
         </Form.Group>
 
         {enableButton()}
-      </Form>
+      </form>
     </div>
   );
 };

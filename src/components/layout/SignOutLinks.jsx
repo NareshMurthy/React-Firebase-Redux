@@ -8,7 +8,7 @@ import "./styles.css";
 
 const SignOutLinks = props => {
   return (
-    <ul>
+    <ul className="signout-links">
       <NavLink to="/postjob">
         <li>Post a Job</li>
       </NavLink>

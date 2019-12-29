@@ -3,8 +3,8 @@
           box-sizing: border-box;
   width: 100vw;
   height: 7vh;
-  background-color: #4b304e;
-  color: #ec7263;
+  background-color: #03a9f4;
+  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,27 +18,31 @@
 }
 
 .sticky-top h4 {
-  border-right: 1px solid #ec7263;
+  border-right: 1px solid black;
   text-align: left;
   width: 10vw;
   margin-left: 20%;
 }
 
-.sticky-top ul {
+.sticky-top .signout-links,
+.sticky-top .signin-links {
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .sticky-top a {
   padding: 0 1rem;
-  color: #ec7263;
+  color: black;
 }
 
 .sticky-top a:hover {
-  color: #febe7e;
+  color: white;
 }
 
 @media screen and (max-width: 800px) {
@@ -77,19 +81,20 @@
     width: 100%;
     margin-left: 2rem;
     font-size: 1.5rem;
-    color: #4b304e;
+    color: #03a9f4;
   }
   .sticky-top i {
-    color: #4b304e;
+    color: #03a9f4;
     text-align: center;
     font-size: 1.5rem;
     width: 20vw;
   }
   .sticky-top .mobile-nav {
     width: 100vw;
-    background-color: #4b304e;
+    background-color: #03a9f4;
   }
-  .sticky-top ul {
+  .sticky-top .signout-links,
+  .sticky-top .signin-links {
     width: 100vw;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;

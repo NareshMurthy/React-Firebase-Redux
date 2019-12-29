@@ -1,8 +1,5 @@
 import React from "react";
 import FreeLancerCard from "./FreeLancerCard";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 import "./styles.css";
 const FreeLancers = ({ freelancers, auth, width }) => {
@@ -12,7 +9,7 @@ const FreeLancers = ({ freelancers, auth, width }) => {
       available: true,
       firstName: "Naresh",
       lastName: "Murthy",
-      role: "Data Science",
+      role: "Data Scientist",
       skills: ["Python", "ML", "AI"]
     },
     {
@@ -20,7 +17,7 @@ const FreeLancers = ({ freelancers, auth, width }) => {
       available: true,
       firstName: "Navami",
       lastName: "Hiremath",
-      role: "Data Science",
+      role: "Data Scientist",
       skills: ["Python", "ML", "AI"]
     },
     {
@@ -28,7 +25,7 @@ const FreeLancers = ({ freelancers, auth, width }) => {
       available: true,
       firstName: "Naomi",
       lastName: "scott",
-      role: "Data Science",
+      role: "Data Scientist",
       skills: ["Python", "ML", "AI"]
     },
     {
@@ -36,7 +33,7 @@ const FreeLancers = ({ freelancers, auth, width }) => {
       available: true,
       firstName: "Angelina",
       lastName: "Jolie",
-      role: "Data Science",
+      role: "Data Scientist",
       skills: ["Python", "ML", "AI"]
     },
     {
@@ -44,7 +41,7 @@ const FreeLancers = ({ freelancers, auth, width }) => {
       available: true,
       firstName: "Angelina",
       lastName: "Jolie",
-      role: "Data Science",
+      role: "Data Scientist",
       skills: ["Python", "ML", "AI"]
     },
     {
@@ -52,24 +49,10 @@ const FreeLancers = ({ freelancers, auth, width }) => {
       available: true,
       firstName: "Angelina",
       lastName: "Jolie",
-      role: "Data Science",
+      role: "Data Scientist",
       skills: ["Python", "ML", "AI"]
     }
   ];
-
-  var settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500,
-    slidesToScroll: 1,
-    autoplay: true,
-    swipeToSlide: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true
-  };
 
   const Cards = freelancers => {
     if (width > 800) {
@@ -83,11 +66,15 @@ const FreeLancers = ({ freelancers, auth, width }) => {
     if (!freelancers || freelancers.length === 0) {
       return <div>No FreeLancers available...</div>;
     } else {
-      return <Slider {...settings}>{Cards(freelancers)}</Slider>;
+      return (
+        <div id="freelancers" className="freelancers">
+          {Cards(freelancers)}
+        </div>
+      );
     }
   };
 
-  return isLoading();
+  return <div>{isLoading()}</div>;
 };
 
 export default FreeLancers;

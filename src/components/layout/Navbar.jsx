@@ -17,7 +17,9 @@ const Navbar = props => {
 
   const expandNavbar = () => {
     state.height === "7vh"
-      ? setState({ height: "37vh" })
+      ? auth.uid
+        ? setState({ height: "37vh" })
+        : setState({ height: "23vh" })
       : setState({ height: "7vh" });
   };
 
@@ -35,7 +37,9 @@ const Navbar = props => {
           <Icon name="bars" onClick={expandNavbar}></Icon>
           <h3>Get It Done</h3>
         </div>
-        <div className="mobile-nav">{links}</div>
+        <div className="mobile-nav" onClick={expandNavbar}>
+          {links}
+        </div>
       </div>
     );
   };

@@ -7,7 +7,14 @@ const FreeLancerCard = ({ freelancers }) => {
   let { firstName, skills, age, available, role } = freelancers;
   let image = faker.image.imageUrl();
   let description = () => {
-    return skills.map((skill, index) => <small key={index}>{skill} </small>);
+    return (
+      <span>
+        Skills:{"  "}
+        {skills.map((skill, index) => (
+          <small key={index}>{skill} </small>
+        ))}
+      </span>
+    );
   };
 
   let extra = () => {
@@ -16,14 +23,13 @@ const FreeLancerCard = ({ freelancers }) => {
 
   return (
     <div className="freelancer-card">
-      <div className="card  text-dark">
-        <img className="card-img" src={image} alt={firstName} />
-        <div className="card-img-overlay info">
-          <p className="card-title">{firstName}</p>
-          <p className="card-text">{role}</p>
-          <p className="card-text">{description()}</p>
-          <p className="card-text">{extra()}</p>
-        </div>
+      <img src={image} alt={firstName} />
+      <div className="overlay">
+        <p className="title">{firstName}</p>
+        <p className="text">{role}</p>
+        <p className="text">{description()}</p>
+
+        {extra()}
       </div>
     </div>
   );

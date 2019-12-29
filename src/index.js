@@ -10,7 +10,13 @@ import thunk from "redux-thunk";
 import { reduxFirestore, getFirestore } from "redux-firestore";
 import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import fbConfig from "./config/fbConfig";
+import WebFontLoader from "webfontloader";
 
+WebFontLoader.load({
+  google: {
+    families: ["Roboto:300,400,500,700", "Material Icons"]
+  }
+});
 const store = createStore(
   rootReducer,
   compose(

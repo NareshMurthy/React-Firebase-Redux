@@ -1,37 +1,27 @@
-.freelancer-card .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 0;
-  margin: 10px;
-}
-
-.freelancer-card .info p {
-  margin: 1px;
-  font-weight: bolder;
-}
-
 .freelancer-card {
-  width: 90%;
-  height: 90%;
-  padding: 10px;
-  margin: 10px 10px;
+  background-color: #4b304e;
+  color: #febe7e;
+  width: 20rem;
+  height: 100%;
+  margin: 2rem 1rem;
+  padding: 0 0 0 0;
   -webkit-transition: -webkit-transform 300ms ease 100ms;
   transition: -webkit-transform 300ms ease 100ms;
   transition: transform 300ms ease 100ms;
   transition: transform 300ms ease 100ms, -webkit-transform 300ms ease 100ms;
+}
+
+.freelancer-card img {
+  width: 20rem;
+}
+
+.freelancer-card .overlay {
+  padding: 1rem;
+}
+
+.freelancer-card .overlay p {
+  font-weight: 500;
+  margin: 0;
 }
 
 .freelancer-card:hover {
@@ -39,12 +29,24 @@
           transform: scale(1.1) !important;
 }
 
+.freelancers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.freelancers::-webkit-scrollbar {
+  color: green;
+}
+
 .step {
   margin: 1%;
 }
 
 .job-form {
-  margin: 10% auto;
+  margin: 4rem auto;
   width: 50%;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -48,6 +48,7 @@ const SignIn = props => {
 
         <div className="mb-3">
           {/* <label htmlFor="email">Email address</label> */}
+
           <input
             type="email"
             // className="form-control"
@@ -62,7 +63,7 @@ const SignIn = props => {
           />
         </div>
 
-        <div className="  mb-3">
+        <div className="mb-4">
           {/* <label htmlFor="password">Password</label> */}
           <input
             type="password"
@@ -77,12 +78,9 @@ const SignIn = props => {
           />
         </div>
 
-        <button>
+        <button className=" mb-3">
           <span>Login</span>
-          <Icon
-            style={{ color: "rgb(254, 190, 126)" }}
-            name="angle double right"
-          ></Icon>
+          <Icon name="angle double right"></Icon>
         </button>
         <h4>Or login in with</h4>
         <Button.Group widths="3" className="mt-1 mb-3">

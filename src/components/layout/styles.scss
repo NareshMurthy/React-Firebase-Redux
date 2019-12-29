@@ -2,31 +2,33 @@
   box-sizing: border-box;
   width: 100vw;
   height: 7vh;
-  background-color: rgb(75, 48, 78);
-  color: rgb(236, 114, 99);
+  background-color: rgb(3, 169, 244);
+  color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
   h4 {
-    border-right: 1px solid rgb(236, 114, 99);
+    border-right: 1px solid black;
     text-align: left;
     width: 10vw;
     margin-left: 20%;
   }
-  ul {
+  .signout-links,
+  .signin-links {
     width: auto;
     display: flex;
     margin: 0 5rem;
+    align-items: center;
   }
 
   a {
     padding: 0 1rem;
-    color: rgb(236, 114, 99);
+    color: black;
   }
 
   a:hover {
-    color: rgb(254, 190, 126);
+    color: white;
   }
 }
 
@@ -53,22 +55,23 @@
         width: 100%;
         margin-left: 2rem;
         font-size: 1.5rem;
-        color: rgb(75, 48, 78);
+        color: rgb(3, 169, 244);
       }
     }
 
     i {
-      color: rgb(75, 48, 78);
+      color: rgb(3, 169, 244);
       text-align: center;
       font-size: 1.5rem;
       width: 20vw;
     }
     .mobile-nav {
       width: 100vw;
-      background-color: rgb(75, 48, 78);
+      background-color: rgb(3, 169, 244);
     }
 
-    ul {
+    .signout-links,
+    .signin-links {
       width: 100vw;
       box-sizing: border-box;
       margin: 0;

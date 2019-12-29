@@ -89,12 +89,9 @@ const SignUp = props => {
           name="password"
         />
       </form>
-      <button>
+      <button className=" mb-3">
         <span>Sign Up</span>
-        <Icon
-          style={{ color: "rgb(254, 190, 126)" }}
-          name="angle double right"
-        ></Icon>
+        <Icon name="angle double right"></Icon>
       </button>
       <h4>Or login in with</h4>
       <Button.Group widths="3" className="mt-1 mb-3">
