@@ -3,13 +3,14 @@
   width: 100vw;
   height: 7vh;
   background-color: rgb(3, 169, 244);
-  color: black;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
   h4 {
-    border-right: 1px solid black;
+    border-right: 1px solid white;
+    color: white;
     text-align: left;
     width: 10vw;
     margin-left: 20%;
@@ -24,11 +25,11 @@
 
   a {
     padding: 0 1rem;
-    color: black;
+    color: white;
   }
 
   a:hover {
-    color: white;
+    color: black;
   }
 }
 
@@ -37,7 +38,7 @@
     width: 100vw;
     box-sizing: border-box;
     display: block;
-    background-color: rgb(254, 190, 126);
+    background-color: rgb(3, 169, 244);
     transition: height 0.2s linear;
     overflow: hidden;
     height: 7vh;
@@ -50,24 +51,26 @@
       justify-content: space-between;
       align-items: center;
       h3 {
-        margin: 0;
-        text-align: left;
         width: 100%;
-        margin-left: 2rem;
         font-size: 1.5rem;
-        color: rgb(3, 169, 244);
+        color: white;
+      }
+      h3:first-child {
+        margin: 0 1rem 0 0;
+        text-align: right;
+      }
+
+      h3:nth-child(2) {
+        margin: 0 0 0 1rem;
+        text-align: left;
       }
     }
 
-    i {
-      color: rgb(3, 169, 244);
-      text-align: center;
-      font-size: 1.5rem;
-      width: 20vw;
-    }
     .mobile-nav {
       width: 100vw;
-      background-color: rgb(3, 169, 244);
+      background-color: white;
+
+      box-sizing: border-box;
     }
 
     .signout-links,
@@ -79,11 +82,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
+      color: black;
     }
     a {
-      font-size: 1.4rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid rgb(254, 190, 126);
+      height: 5vh;
+      color: black;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid black;
       width: 100%;
       text-align: center;
     }

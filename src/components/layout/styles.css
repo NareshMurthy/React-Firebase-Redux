@@ -4,7 +4,7 @@
   width: 100vw;
   height: 7vh;
   background-color: #03a9f4;
-  color: black;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +18,8 @@
 }
 
 .sticky-top h4 {
-  border-right: 1px solid black;
+  border-right: 1px solid white;
+  color: white;
   text-align: left;
   width: 10vw;
   margin-left: 20%;
@@ -38,11 +39,11 @@
 
 .sticky-top a {
   padding: 0 1rem;
-  color: black;
+  color: white;
 }
 
 .sticky-top a:hover {
-  color: white;
+  color: black;
 }
 
 @media screen and (max-width: 800px) {
@@ -51,7 +52,7 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     display: block;
-    background-color: #febe7e;
+    background-color: #03a9f4;
     -webkit-transition: height 0.2s linear;
     transition: height 0.2s linear;
     overflow: hidden;
@@ -76,22 +77,23 @@
             align-items: center;
   }
   .sticky-top .header h3 {
-    margin: 0;
-    text-align: left;
     width: 100%;
-    margin-left: 2rem;
     font-size: 1.5rem;
-    color: #03a9f4;
+    color: white;
   }
-  .sticky-top i {
-    color: #03a9f4;
-    text-align: center;
-    font-size: 1.5rem;
-    width: 20vw;
+  .sticky-top .header h3:first-child {
+    margin: 0 1rem 0 0;
+    text-align: right;
+  }
+  .sticky-top .header h3:nth-child(2) {
+    margin: 0 0 0 1rem;
+    text-align: left;
   }
   .sticky-top .mobile-nav {
     width: 100vw;
-    background-color: #03a9f4;
+    background-color: white;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
   .sticky-top .signout-links,
   .sticky-top .signin-links {
@@ -112,11 +114,14 @@
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
+    color: black;
   }
   .sticky-top a {
-    font-size: 1.4rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #febe7e;
+    height: 5vh;
+    color: black;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid black;
     width: 100%;
     text-align: center;
   }

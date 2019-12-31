@@ -18,8 +18,8 @@ const Navbar = props => {
   const expandNavbar = () => {
     state.height === "7vh"
       ? auth.uid
-        ? setState({ height: "37vh" })
-        : setState({ height: "23vh" })
+        ? setState({ height: "27vh" })
+        : setState({ height: "17vh" })
       : setState({ height: "7vh" });
   };
 
@@ -34,7 +34,9 @@ const Navbar = props => {
     ) : (
       <div className="sticky-top" style={{ ...state }}>
         <div className="header">
-          <Icon name="bars" onClick={expandNavbar}></Icon>
+          <h3>
+            <Icon name="bars" onClick={expandNavbar}></Icon>
+          </h3>
           <h3>Get It Done</h3>
         </div>
         <div className="mobile-nav" onClick={expandNavbar}>

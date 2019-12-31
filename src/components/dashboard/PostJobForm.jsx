@@ -6,9 +6,8 @@ import {
   doSubmit
 } from "../../store/actions/JobFormAction";
 import { Redirect } from "react-router-dom";
-import { DatePicker } from "react-md";
-import { Button, Form, Icon } from "semantic-ui-react";
 import "./styles.css";
+import { TextField, Snackbar, Button, DatePicker } from "react-md";
 const PostJobForm = props => {
   let { auth, job, handleChange, handleDateChange, doSubmit } = props;
   let {
@@ -22,29 +21,14 @@ const PostJobForm = props => {
   const enableButton = () => {
     if (description && shortDescription) {
       return (
-        <Button
-          className="mt-4"
-          icon
-          labelPosition="right"
-          size="large"
-          color="red"
-        >
+        <Button raised primary className="mt-4 ml-2">
           Post
-          <Icon name="right arrow" />
         </Button>
       );
     } else {
       return (
-        <Button
-          className="mt-4"
-          icon
-          labelPosition="right"
-          size="large"
-          color="red"
-          disabled
-        >
+        <Button raised primary disabled className="mt-4 ml-2">
           Post
-          <Icon name="right arrow" />
         </Button>
       );
     }
@@ -52,63 +36,82 @@ const PostJobForm = props => {
 
   if (!auth.uid) return <Redirect to="/signin" />;
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (!state.toasts.length) {
+  //     const toasts = state.toasts.slice();
+  //     toasts.push({
+  //       text: 'Submitted new application',
+  //       action: 'Neat!',
+  //     });
+  //     setState({ toasts });
+  //   }
+  // };
+
+  // const handleDismiss = () => {
+  //   const [ ...toasts] = state.toasts;
+  //   setState({ toasts });
+  // };
+
   return (
-    <div>
-      <form onSubmit={doSubmit} className="job-form">
-        <Form.Group widths="two">
-          <input
-            type="text"
-            id="shortDescription"
-            name="shortDescription"
-            onChange={handleChange}
-            value={shortDescription}
-            placeholder="Short description"
-          ></input>
+    <div className="job-form">
+      <form onSubmit={doSubmit} className=" md-grid">
+        <TextField
+          type="text"
+          id="shortDescription"
+          name="shortDescription"
+          onChange={(value, e) => handleChange(e)}
+          label="Short description"
+          value={shortDescription}
+          lineDirection="center"
+          placeholder="Short description"
+          className="md-cell md-cell--bottom"
+        />
 
-          {/* <DatePicker
-            todayButton="Today"
-            isClearable
-            selected={finishDate}
-            onChange={date => handleDateChange(date)}
-            placeholderText="Choose a date"
-          /> */}
-          <DatePicker
-            id="appointment-date-auto"
-            label="Select an appointment date"
-            className="md-cell"
-          />
-        </Form.Group>
-        <textarea
+        <DatePicker
+          id="end-date-auto"
+          label="Select an end date"
+          className="md-cell"
+          onChange={date => handleDateChange(date)}
+          value={finishDate}
+        />
+
+        <TextField
           id="description"
-          placeholder="Tell us more about the job..."
           name="description"
+          placeholder="Tell us more about the job..."
+          label="Tell us more about the job..."
           rows="3"
-          spellcheck="false"
-          onChange={handleChange}
+          onChange={(value, e) => handleChange(e)}
           value={description}
-        ></textarea>
+        />
 
-        <Form.Group widths="two">
-          <input
-            type="text"
-            id="attachments"
-            name="attachments"
-            onChange={handleChange}
-            value={attachments}
-            placeholder="Attachments"
-          ></input>
-          <input
-            type="text"
-            id="freelancer"
-            name="freelancer"
-            onChange={handleChange}
-            value={freelancer}
-            placeholder="Choose a lancer"
-          ></input>
-        </Form.Group>
+        <TextField
+          type="text"
+          id="attachments"
+          name="attachments"
+          onChange={(value, e) => handleChange(e)}
+          label="Attachments"
+          value={attachments}
+          placeholder="Attachments"
+          lineDirection="center"
+          className="md-cell md-cell--bottom"
+        />
 
-        {enableButton()}
+        <TextField
+          type="text"
+          id="freelancer"
+          name="freelancer"
+          onChange={(value, e) => handleChange(e)}
+          label="Choose a lancer"
+          value={freelancer}
+          placeholder="Choose a lancer"
+          lineDirection="center"
+          className="md-cell md-cell--bottom"
+        />
       </form>
+      {enableButton()}
+      {/* <Snackbar id="application-toasts" toasts={toasts} onDismiss={handleDismiss} /> */}
     </div>
   );
 };

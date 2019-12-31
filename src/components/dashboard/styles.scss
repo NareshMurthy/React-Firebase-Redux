@@ -1,22 +1,5 @@
 .freelancer-card {
-  background-color: rgb(75, 48, 78);
-  color: rgb(254, 190, 126);
-  width: 20rem;
-  height: 100%;
-  margin: 2rem 1rem;
-  padding: 0 0 0 0;
   transition: transform 300ms ease 100ms;
-  img {
-    width: 20rem;
-  }
-
-  .overlay {
-    padding: 1rem;
-    p {
-      font-weight: 500;
-      margin: 0;
-    }
-  }
 }
 
 .freelancer-card:hover {
@@ -39,4 +22,13 @@
 .job-form {
   margin: 4rem auto;
   width: 50%;
+  button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .job-form {
+    width: 80vw;
+  }
 }
