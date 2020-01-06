@@ -2,7 +2,8 @@
 .signup {
   margin: auto;
   width: 30vw;
-  button {
+  .signin-button,
+  .signup-button {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -24,34 +25,6 @@
     &:focus {
       outline: 0;
     }
-  }
-
-  input[type="email"],
-  input[type="password"],
-  input[type="text"] {
-    padding: 2%;
-    width: 100%;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid black;
-  }
-
-  input[type="email"]::placeholder,
-  input[type="password"]::placeholder,
-  input[type="text"]::placeholder {
-    opacity: 0.3;
-    color: white;
-  }
-
-  input:focus {
-    border-bottom: 2px solid rgb(3, 169, 244);
-  }
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
   }
 }
 

@@ -4,6 +4,7 @@ import { signIn } from "./../../store/actions/authActions";
 import handleInputChange from "./../common/handleInputChange";
 import { Redirect } from "react-router-dom";
 
+import { TextField, Snackbar, DatePicker } from "react-md";
 import { NavLink } from "react-router-dom";
 import { Button, Icon, Message } from "semantic-ui-react";
 
@@ -47,38 +48,37 @@ const SignIn = props => {
         </div>
 
         <div className="mb-3">
-          {/* <label htmlFor="email">Email address</label> */}
-
-          <input
+          <TextField
             type="email"
-            // className="form-control"
             required
             autoFocus
-            onChange={handleChange}
-            // error={state.errors.email}
             id="email"
             name="email"
             placeholder="Username"
+            onChange={(value, e) => handleChange(e)}
+            label="Email"
             value={state.email}
+            lineDirection="center"
+            className="md-cell md-cell--12"
           />
         </div>
 
         <div className="mb-4">
-          {/* <label htmlFor="password">Password</label> */}
-          <input
+          <TextField
+            required
             type="password"
             id="password"
-            // className="form-control"
-            placeholder="Password"
-            required
-            value={state.password}
-            onChange={handleChange}
-            // error={state.errors.password}
             name="password"
+            placeholder="Password"
+            onChange={(value, e) => handleChange(e)}
+            label="Password"
+            value={state.password}
+            lineDirection="center"
+            className="md-cell md-cell--12"
           />
         </div>
 
-        <button className=" mb-3">
+        <button className="signin-button mb-3">
           <span>Login</span>
           <Icon name="angle double right"></Icon>
         </button>

@@ -4,8 +4,10 @@
   width: 30vw;
 }
 
-.signin button,
-.signup button {
+.signin .signin-button,
+.signin .signup-button,
+.signup .signin-button,
+.signup .signup-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,85 +29,19 @@
           justify-content: space-between;
 }
 
-.signin button:hover,
-.signup button:hover {
+.signin .signin-button:hover,
+.signin .signup-button:hover,
+.signup .signin-button:hover,
+.signup .signup-button:hover {
   padding-right: 50px;
   padding-left: 50px;
 }
 
-.signin button:focus,
-.signup button:focus {
+.signin .signin-button:focus,
+.signin .signup-button:focus,
+.signup .signin-button:focus,
+.signup .signup-button:focus {
   outline: 0;
-}
-
-.signin input[type="email"],
-.signin input[type="password"],
-.signin input[type="text"],
-.signup input[type="email"],
-.signup input[type="password"],
-.signup input[type="text"] {
-  padding: 2%;
-  width: 100%;
-  outline: none;
-  border: none;
-  border-bottom: 2px solid black;
-}
-
-.signin input[type="email"]::-webkit-input-placeholder,
-.signin input[type="password"]::-webkit-input-placeholder,
-.signin input[type="text"]::-webkit-input-placeholder,
-.signup input[type="email"]::-webkit-input-placeholder,
-.signup input[type="password"]::-webkit-input-placeholder,
-.signup input[type="text"]::-webkit-input-placeholder {
-  opacity: 0.3;
-  color: white;
-}
-
-.signin input[type="email"]:-ms-input-placeholder,
-.signin input[type="password"]:-ms-input-placeholder,
-.signin input[type="text"]:-ms-input-placeholder,
-.signup input[type="email"]:-ms-input-placeholder,
-.signup input[type="password"]:-ms-input-placeholder,
-.signup input[type="text"]:-ms-input-placeholder {
-  opacity: 0.3;
-  color: white;
-}
-
-.signin input[type="email"]::-ms-input-placeholder,
-.signin input[type="password"]::-ms-input-placeholder,
-.signin input[type="text"]::-ms-input-placeholder,
-.signup input[type="email"]::-ms-input-placeholder,
-.signup input[type="password"]::-ms-input-placeholder,
-.signup input[type="text"]::-ms-input-placeholder {
-  opacity: 0.3;
-  color: white;
-}
-
-.signin input[type="email"]::placeholder,
-.signin input[type="password"]::placeholder,
-.signin input[type="text"]::placeholder,
-.signup input[type="email"]::placeholder,
-.signup input[type="password"]::placeholder,
-.signup input[type="text"]::placeholder {
-  opacity: 0.3;
-  color: white;
-}
-
-.signin input:focus,
-.signup input:focus {
-  border-bottom: 2px solid #03a9f4;
-}
-
-.signin input:-webkit-autofill,
-.signin input:-webkit-autofill:hover,
-.signin input:-webkit-autofill:focus,
-.signin input:-webkit-autofill:active,
-.signup input:-webkit-autofill,
-.signup input:-webkit-autofill:hover,
-.signup input:-webkit-autofill:focus,
-.signup input:-webkit-autofill:active {
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
 }
 
 h1,

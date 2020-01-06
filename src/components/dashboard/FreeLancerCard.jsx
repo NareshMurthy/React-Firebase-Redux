@@ -25,22 +25,20 @@ const FreeLancerCard = ({ freelancers }) => {
   };
 
   return (
-    <Card className="freelancer-card md-cell md-cell--6 md-cell--8-tablet">
-      <Media>
-        <img
-          src={image}
-          alt={firstName}
-          // style={{ width: "600", height: "337", section: "nature" }}
-        />
-        <MediaOverlay>
-          <CardTitle title={firstName} subtitle={role}>
-            <Button className="md-cell--right" icon>
-              Hire
-            </Button>
-          </CardTitle>
-        </MediaOverlay>
-      </Media>
-    </Card>
+    <div className="freelancer-card">
+      <img
+        src={image}
+        alt={firstName}
+        style={{ height: "30vh", width: "100%" }}
+      />
+      <div className="overlay">
+        <h4>{firstName}</h4>
+        <h4>{role}</h4>
+        <Button raised primary className="md-cell--right primary">
+          Hire
+        </Button>
+      </div>
+    </div>
   );
 };
 

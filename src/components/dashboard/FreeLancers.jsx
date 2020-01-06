@@ -55,11 +55,11 @@ const FreeLancers = ({ freelancers, auth, width }) => {
   ];
 
   const Cards = freelancers => {
-    if (width > 800) {
-      return freelancers.map((freelancer, index) => (
-        <FreeLancerCard key={index} freelancers={freelancer}></FreeLancerCard>
-      ));
-    }
+    // if (width > 800) {
+    return freelancers.map((freelancer, index) => (
+      <FreeLancerCard key={index} freelancers={freelancer}></FreeLancerCard>
+    ));
+    // }
   };
 
   const isLoading = () => {

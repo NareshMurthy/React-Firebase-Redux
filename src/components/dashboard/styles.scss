@@ -1,9 +1,24 @@
 .freelancer-card {
-  transition: transform 300ms ease 100ms;
-}
+  height: 30vh;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  // transition: transform 300ms ease 100ms;
 
-.freelancer-card:hover {
-  transform: scale(1.1) !important;
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.54);
+    margin: auto;
+    z-index: 1;
+  }
+
+  // .freelancer-card:hover {
+  //   transform: scale(1.1) !important;
+  // }
 }
 
 .freelancers {

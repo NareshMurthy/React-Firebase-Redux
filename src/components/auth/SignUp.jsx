@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { TextField, Snackbar, DatePicker } from "react-md";
 import { connect } from "react-redux";
 import { signUp } from "./../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
@@ -43,53 +44,64 @@ const SignUp = props => {
             Log-in to your account to do this this that
           </h3>
         </div>
-        <input
+
+        <TextField
           type="text"
+          required
+          autoFocus
           name="firstName"
           id="firstName"
-          onChange={handleChange}
           placeholder="First Name"
-          required
-          className="mb-3"
+          onChange={(value, e) => handleChange(e)}
+          label="First Name"
           value={state.firstName}
-          autoFocus
-          // error={errors.firstName}
-        />
-        <input
-          id="lastName"
-          name="lastName"
-          required
-          type="text"
-          placeholder="Last Name"
-          onChange={handleChange}
-          value={state.lastName}
-          className=" mb-3"
+          errorText={errors.firstName}
+          lineDirection="center"
+          className="md-cell md-cell--12"
         />
 
-        <input
-          type="email"
-          className="mb-3"
+        <TextField
+          type="text"
           required
-          onChange={handleChange}
-          // error={state.errors.email}
+          autoFocus
+          id="lastName"
+          name="lastName"
+          placeholder="Last Name"
+          onChange={(value, e) => handleChange(e)}
+          label="Last Name"
+          value={state.lastName}
+          lineDirection="center"
+          className="md-cell md-cell--12"
+        />
+
+        <TextField
+          type="email"
+          required
           id="email"
           name="email"
-          placeholder="Email"
+          placeholder="Username"
+          onChange={(value, e) => handleChange(e)}
+          label="Email"
           value={state.email}
+          lineDirection="center"
+          className="md-cell md-cell--12"
         />
-        <input
+
+        <TextField
+          required
           type="password"
           id="password"
-          className=" mb-3"
-          placeholder="Password"
-          required
-          value={state.password}
-          onChange={handleChange}
-          // error={state.errors.password}
           name="password"
+          placeholder="Password"
+          onChange={(value, e) => handleChange(e)}
+          label="Password"
+          value={state.password}
+          errorText={errors.password}
+          lineDirection="center"
+          className="md-cell md-cell--12"
         />
       </form>
-      <button className=" mb-3">
+      <button className="signup-button mt-4 mb-3">
         <span>Sign Up</span>
         <Icon name="angle double right"></Icon>
       </button>

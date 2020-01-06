@@ -1,4 +1,5 @@
 .freelancer-card {
+  height: 40vh;
   -webkit-transition: -webkit-transform 300ms ease 100ms;
   transition: -webkit-transform 300ms ease 100ms;
   transition: transform 300ms ease 100ms;
