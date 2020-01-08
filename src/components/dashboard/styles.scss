@@ -1,34 +1,37 @@
 .freelancer-card {
-  height: 30vh;
+  height: 300px;
   width: 100%;
-  overflow: hidden;
-  padding: 0;
+  margin: 1rem;
   position: relative;
-  // transition: transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms;
 
   .overlay {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
     position: absolute;
     bottom: 0;
-    top: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.54);
     margin: auto;
     z-index: 1;
+    h4 {
+      color: white;
+      padding: 0;
+      margin: 0;
+    }
   }
 
-  // .freelancer-card:hover {
-  //   transform: scale(1.1) !important;
-  // }
+  .freelancer-card:hover {
+    transform: scale(1.1) !important;
+  }
 }
 
 .freelancers {
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-}
-
-.freelancers::-webkit-scrollbar {
-  color: green;
 }
 
 .step {

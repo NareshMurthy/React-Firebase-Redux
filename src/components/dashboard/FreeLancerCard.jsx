@@ -1,15 +1,7 @@
 import React from "react";
-// import {  } from "semantic-ui-react";
 import faker from "faker";
-import {
-  Button,
-  Card,
-  CardTitle,
-  CardText,
-  Media,
-  MediaOverlay
-} from "react-md";
-// import "./styles.css";
+import { Button } from "react-md";
+import "./styles.css";
 const FreeLancerCard = ({ freelancers }) => {
   let { firstName, skills, age, available, role } = freelancers;
   let image = faker.image.imageUrl();
@@ -29,12 +21,14 @@ const FreeLancerCard = ({ freelancers }) => {
       <img
         src={image}
         alt={firstName}
-        style={{ height: "30vh", width: "100%" }}
+        style={{ height: "300px", width: "300px" }}
       />
       <div className="overlay">
-        <h4>{firstName}</h4>
-        <h4>{role}</h4>
-        <Button raised primary className="md-cell--right primary">
+        <div>
+          <h4>{firstName}</h4>
+          <h4>{role}</h4>
+        </div>
+        <Button raised primary>
           Hire
         </Button>
       </div>

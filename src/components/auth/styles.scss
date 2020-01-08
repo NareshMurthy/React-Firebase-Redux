@@ -29,7 +29,7 @@
 }
 
 h1,
-h3 {
+p {
   text-align: left;
   span {
     color: rgb(149, 140, 107);
@@ -48,10 +48,9 @@ h3 {
 }
 
 @media screen and (max-width: 800px) {
-  .signin {
-    width: 80vw;
-  }
+  .signin,
   .signup {
     width: 80vw;
+    box-sizing: border-box;
   }
 }

@@ -4,9 +4,9 @@ import { signIn } from "./../../store/actions/authActions";
 import handleInputChange from "./../common/handleInputChange";
 import { Redirect } from "react-router-dom";
 
-import { TextField, Snackbar, DatePicker } from "react-md";
+import { TextField, Snackbar } from "react-md";
 import { NavLink } from "react-router-dom";
-import { Button, Icon, Message } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 
 import "./styles.css";
 
@@ -37,14 +37,12 @@ const SignIn = props => {
   return (
     <div className="signin">
       <form autoComplete="off" onSubmit={doSubmit}>
-        <div className=" mb-4">
-          <h1 className=" mt-5 mb-2">
+        <div className=" mb-4 mt-5">
+          <h1 className="  mb-2">
             We are <span>Lorem Ipsum</span>
           </h1>
 
-          <h3 className="mb-3 font-weight-normal">
-            Log-in to your account to do this this that
-          </h3>
+          <h3 className="mb-3">Log-in to your account to do this</h3>
         </div>
 
         <div className="mb-3">

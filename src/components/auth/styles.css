@@ -45,12 +45,12 @@
 }
 
 h1,
-h3 {
+p {
   text-align: left;
 }
 
 h1 span,
-h3 span {
+p span {
   color: #958c6b;
 }
 
@@ -67,11 +67,11 @@ h3 span {
 }
 
 @media screen and (max-width: 800px) {
-  .signin {
-    width: 80vw;
-  }
+  .signin,
   .signup {
     width: 80vw;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -68,8 +68,7 @@
 
     .mobile-nav {
       width: 100vw;
-      background-color: white;
-
+      background-color: rgb(3, 169, 244);
       box-sizing: border-box;
     }
 
@@ -82,14 +81,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
-      color: black;
+      color: white;
+      text-align: center;
     }
     a {
       height: 5vh;
-      color: black;
+      color: white;
       font-size: 1.1rem;
       padding: 0.5rem 0;
-      border-bottom: 1px solid black;
+      border-top: 1px solid white;
       width: 100%;
       text-align: center;
     }

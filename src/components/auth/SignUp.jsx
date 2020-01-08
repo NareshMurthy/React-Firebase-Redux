@@ -35,13 +35,13 @@ const SignUp = props => {
   return (
     <div className="signup">
       <form autoComplete="off" onSubmit={doSubmit}>
-        <div className="text-center mb-4">
-          <h1 className=" mt-5 mb-2">
+        <div className="text-center mt-5 mb-4">
+          <h1 className="  mb-2">
             We are <span>Lorem Ipsum</span>
           </h1>
 
           <h3 className="mb-3 font-weight-normal">
-            Log-in to your account to do this this that
+            Log-in to your account to do this
           </h3>
         </div>
 
