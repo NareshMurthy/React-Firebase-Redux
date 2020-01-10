@@ -2,8 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { signOut } from "./../../store/actions/authActions";
-import { Image } from "semantic-ui-react";
-import faker from "faker";
+
 import "./styles.css";
 
 const SignOutLinks = props => {
@@ -18,7 +17,7 @@ const SignOutLinks = props => {
       </NavLink>
 
       <NavLink to="/userprofile">
-        <Image src={faker.internet.avatar()} avatar />
+        <li>Profile</li>
       </NavLink>
       <a onClick={props.signOut}>Sign Out</a>
     </ul>

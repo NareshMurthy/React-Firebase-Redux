@@ -33,10 +33,9 @@ const PaymentForm = props => {
               name="paymentMethod"
               type="radio"
               className="custom-control-input"
-              checked
               required
             />
-            <label className="custom-control-label" for="credit">
+            <label className="custom-control-label" htmlFor="credit">
               Credit card
             </label>
           </div>
@@ -48,7 +47,7 @@ const PaymentForm = props => {
               className="custom-control-input"
               required
             />
-            <label className="custom-control-label" for="debit">
+            <label className="custom-control-label" htmlFor="debit">
               Debit card
             </label>
           </div>
@@ -60,14 +59,14 @@ const PaymentForm = props => {
               className="custom-control-input"
               required
             />
-            <label className="custom-control-label" for="paypal">
+            <label className="custom-control-label" htmlFor="paypal">
               Paypal
             </label>
           </div>
         </div>
         <div className="row">
           <div className="col-md-6 mb-3">
-            <label for="cc-name">Name on card</label>
+            <label htmlFor="cc-name">Name on card</label>
             <input
               type="text"
               className="form-control"
@@ -79,7 +78,7 @@ const PaymentForm = props => {
             <div className="invalid-feedback">Name on card is required</div>
           </div>
           <div className="col-md-6 mb-3">
-            <label for="cc-number">Credit card number</label>
+            <label htmlFor="cc-number">Credit card number</label>
             <input
               type="text"
               className="form-control"
@@ -94,7 +93,7 @@ const PaymentForm = props => {
         </div>
         <div className="row">
           <div className="col-md-3 mb-3">
-            <label for="cc-expiration">Expiration</label>
+            <label htmlFor="cc-expiration">Expiration</label>
             <input
               type="text"
               className="form-control"
@@ -105,7 +104,7 @@ const PaymentForm = props => {
             <div className="invalid-feedback">Expiration date required</div>
           </div>
           <div className="col-md-3 mb-3">
-            <label for="cc-expiration">CVV</label>
+            <label htmlFor="cc-expiration">CVV</label>
             <input
               type="text"
               className="form-control"

@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import SignInLinks from "./SignInLinks";
 import SignOutLinks from "./SignOutLinks";
 import "./styles.css";
+
+import { Avatar } from "react-md";
+import faker from "faker";
 // import logo from "../../assets/logo.svg";
 import { Icon } from "semantic-ui-react";
 
@@ -18,7 +21,7 @@ const Navbar = props => {
   const expandNavbar = () => {
     state.height === "7vh"
       ? auth.uid
-        ? setState({ height: "27vh" })
+        ? setState({ height: "25vh" })
         : setState({ height: "17vh" })
       : setState({ height: "7vh" });
   };
@@ -34,9 +37,13 @@ const Navbar = props => {
     ) : (
       <div className="sticky-top" style={{ ...state }}>
         <div className="header">
-          <h3>
-            <Icon name="bars" onClick={expandNavbar}></Icon>
-          </h3>
+          <div>
+            <Avatar
+              src={faker.internet.avatar()}
+              onClick={expandNavbar}
+              role="presentation"
+            />
+          </div>
           <h3>Get It Done</h3>
         </div>
         <div className="mobile-nav" onClick={expandNavbar}>

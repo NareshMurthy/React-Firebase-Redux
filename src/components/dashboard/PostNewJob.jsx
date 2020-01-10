@@ -1,77 +1,50 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { Step, Icon } from "semantic-ui-react";
 import PostJobForm from "./PostJobForm";
-
+import { TabsContainer, Tabs, Tab } from "react-md";
 import "./styles.css";
 import PaymentForm from "./PaymentForm";
 const PostNewJob = props => {
-  const initialState = {
-    steps: [
-      {
-        title: "Details",
-        icon: "briefcase",
-        description: "Enter Job information",
-        active: true,
-        page: "postjob"
-      },
-      {
-        title: "Billing",
-        icon: "payment",
-        description: "Enter billing information",
-        active: false,
-        page: "payment"
-      },
-      {
-        title: "Confirm Order",
-        icon: "info",
-        description: "Verify order details",
-        active: false,
-        page: "confirm-order"
-      }
-    ]
-  };
-  const [state, setState] = useState(initialState);
-  let { auth, job } = props;
-  let { steps } = state;
-  console.log(job.renderPaymentPage);
-  if (!auth.uid) return <Redirect to="/signin" />;
-
-  const renderForm = () => {
-    // let activeStep = steps.filter(step => step.active);
-
-    // let newState = { ...state };
-    // newState.steps[1].active = true;
-    // setState(newState);
-    if (job.renderPaymentPage) {
-      return <PaymentForm></PaymentForm>;
-    } else {
-      return <PostJobForm></PostJobForm>;
+  let steps = [
+    {
+      title: "Details",
+      page: <PostJobForm></PostJobForm>
+    },
+    {
+      title: "Billing",
+      page: <PaymentForm></PaymentForm>
+    },
+    {
+      title: "Confirm Order",
+      page: <div>Success</div>
     }
-  };
+  ];
+  let { auth, job } = props;
+
+  if (!auth.uid) return <Redirect to="/signin" />;
 
   const renderStep = () => {
     return steps.map((step, index) => (
-      <Step key={index} active={step.active}>
-        <Icon name={step.icon} />
-        <Step.Content>
-          <Step.Title>{step.title}</Step.Title>
-          <Step.Description>{step.description}</Step.Description>
-        </Step.Content>
-      </Step>
+      <Tab key={index} label={step.title}>
+        {step.page}
+      </Tab>
     ));
   };
 
   return (
-    <div>
-      <div className="step">
-        <Step.Group unstackable size="mini">
-          {renderStep()}
-        </Step.Group>
-        {renderForm()}
-      </div>
-    </div>
+    <TabsContainer
+      panelClassName="md-grid"
+      style={{ borderTop: "1px solid white" }}
+    >
+      <Tabs
+        tabId="simple-tab"
+        mobile={true}
+        style={{ backgroundColor: "rgb(3, 169, 244)", color: "white" }}
+      >
+        {renderStep()}
+      </Tabs>
+    </TabsContainer>
   );
 };
 const mapStateToProps = state => {

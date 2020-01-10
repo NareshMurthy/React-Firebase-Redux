@@ -63,7 +63,6 @@ const SignUp = props => {
         <TextField
           type="text"
           required
-          autoFocus
           id="lastName"
           name="lastName"
           placeholder="Last Name"

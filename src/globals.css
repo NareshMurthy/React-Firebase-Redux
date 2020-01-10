@@ -1,1 +1,29 @@
-/* No CSS *//*# sourceMappingURL=globals.css.map */
+.file-inputs__upload-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 2em;
+  position: relative;
+}
+
+.file-inputs__upload-form__progress {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.file-inputs__upload-form__file-upload {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.file-inputs__upload-form__file-field {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 8px;
+}
+/*# sourceMappingURL=globals.css.map */

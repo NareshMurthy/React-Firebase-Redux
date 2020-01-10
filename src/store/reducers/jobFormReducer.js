@@ -2,9 +2,8 @@ const initialState = {
   finishDate: "",
   shortDescription: "",
   description: "",
-  attachments: "",
   freelancer: "",
-  renderPaymentPage: false
+  showToast: false
 };
 
 const jobReducer = (state = initialState, action) => {
@@ -16,8 +15,11 @@ const jobReducer = (state = initialState, action) => {
     case "HANDLE_CHANGE":
       newState[action.e.target.name] = action.e.target.value;
       return newState;
+    case "HANDLE_SELECT_CHANGE":
+      newState["freelancer"] = action.e;
+      return newState;
     case "DO_SUBMIT":
-      newState["renderPaymentPage"] = true;
+      newState["showToast"] = true;
       return newState;
     case "ADD_JOB_ERROR":
       console.log("create job err", action.err);
