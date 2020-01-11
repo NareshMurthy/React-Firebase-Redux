@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import cogoToast from "cogo-toast";
+import { usePromiseTracker } from "react-promise-tracker";
 import {
   handleChange,
   handleDateChange,
@@ -10,32 +10,38 @@ import {
 
 import { Redirect } from "react-router-dom";
 import "./styles.css";
-import {
-  TextField,
-  Button,
-  DatePicker,
-  SelectField,
-  LinearProgress
-} from "react-md";
+import { TextField, Button, DatePicker, SelectField, Snackbar } from "react-md";
 import UploadFile from "../common/UploadFile";
+import Spinner from "../common/Spinner";
 const PostJobForm = props => {
+  console.log(props);
+  const { promiseInProgress } = usePromiseTracker();
   let {
     auth,
-    job,
+    state,
     handleChange,
     handleDateChange,
     handleSelectChange,
     doSubmit
   } = props;
-  let {
-    finishDate,
-    shortDescription,
-    description,
-    freelancer,
-    showToast
-  } = job;
+  if (!auth.uid) return <Redirect to="/signin" />;
 
-  let statesWithEmpty = ["Naresh", "Navami", "Meme"];
+  let { finishDate, shortDescription, description, domain } = state.job;
+
+  let toastText = state.toastText;
+  let toast = [];
+  if (toastText) {
+    console.log(toastText);
+
+    let temp = { text: toastText, action: "" };
+    toast.push(temp);
+  }
+
+  const onDismiss = () => {
+    toast.pop();
+  };
+
+  let domains = ["IT", "WEB", "DATA SCIENCE"];
 
   const enableButton = () => {
     if (description && shortDescription) {
@@ -53,15 +59,9 @@ const PostJobForm = props => {
     }
   };
 
-  if (!auth.uid) return <Redirect to="/signin" />;
-
-  if (showToast) {
-    cogoToast.success("Data successfully added");
-  }
-
   return (
-    <div className="job-form">
-      <LinearProgress id="query-indeterminate-progress" query value={10} />
+    <div className="job-form ">
+      {promiseInProgress && <Spinner loading={promiseInProgress}></Spinner>}
       <form onSubmit={e => doSubmit(e)} className=" md-grid">
         <TextField
           type="text"
@@ -72,21 +72,28 @@ const PostJobForm = props => {
           value={shortDescription}
           lineDirection="center"
           placeholder="Short description"
-          className="md-cell md-cell--bottom"
+          className="md-cell md-cell--8"
         />
         <DatePicker
-          id="end-date-auto"
+          id="date-picker-controlled"
           label="Select an end date"
-          className="md-cell"
+          className="md-cell md-cell--4"
           onChange={date => handleDateChange(date)}
           value={finishDate}
+          required
+          icon={false}
+          errorText="This is required!"
+          cancelPrimary={false}
+          okPrimary={false}
         />
+
         <TextField
           id="description"
           name="description"
           placeholder="Tell us more about the job..."
           label="Tell us more about the job..."
           rows="3"
+          className="md-cell md-cell--12"
           onChange={(value, e) => handleChange(e)}
           value={description}
         />
@@ -95,24 +102,31 @@ const PostJobForm = props => {
         <SelectField
           id="freelancer"
           name="freelancer"
-          label="Choose a lancer"
-          value={freelancer}
+          label="Choose a domain"
+          value={domain}
           onChange={e => handleSelectChange(e)}
-          menuItems={statesWithEmpty}
+          menuItems={domains}
           itemLabel="name"
           itemValue="abbreviation"
-          className="md-cell md-cell--4-tablet md-cell--6"
+          className="md-cell md-cell--6"
           helpOnFocus
           helpText="Try selecting an item in the list."
         />
         {enableButton()}
       </form>
+
+      <Snackbar
+        id="interactive-snackbar"
+        toasts={toast}
+        autohide
+        onDismiss={onDismiss}
+      />
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  return { auth: state.firebase.auth, job: state.job };
+  return { auth: state.firebase.auth, state: state.job };
 };
 
 const mapDispatchToProps = dispatch => {

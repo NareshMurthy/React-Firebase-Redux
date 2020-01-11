@@ -1,4 +1,5 @@
 import { storageRef } from "../../config/fbConfig";
+import { trackPromise } from "react-promise-tracker";
 export const handleChange = e => {
   return dispatch => {
     dispatch({ type: "HANDLE_CHANGE", e });
@@ -25,31 +26,32 @@ export const doSubmit = e => {
     e.preventDefault();
     let formData = new FormData(e.target);
     let file = formData.get("file");
+    trackPromise(
+      storageRef
+        .child("files/" + file.name)
+        .put(file)
+        .then(snapshot => {
+          const firestore = getFirestore();
+          const userId = getState().firebase.auth.uid;
+          let job = Object.assign({}, { ...getState().job });
 
-    storageRef
-      .child("files/" + file.name)
-      .put(file)
-      .then(snapshot => {
-        const firestore = getFirestore();
-        const userId = getState().firebase.auth.uid;
-        let job = Object.assign({}, { ...getState().job });
-
-        snapshot.ref.getDownloadURL().then(function(downloadURL) {
-          firestore
-            .collection("jobs")
-            .add({
-              ...job,
-              attachmentURL: downloadURL,
-              userId: userId,
-              createdAt: new Date()
-            })
-            .then(() => {
-              dispatch({ type: "DO_SUBMIT", e });
-            })
-            .catch(err => {
-              dispatch({ type: "ADD_JOB_ERROR", err });
-            });
-        });
-      });
+          snapshot.ref.getDownloadURL().then(function(downloadURL) {
+            firestore
+              .collection("jobs")
+              .add({
+                ...job,
+                attachmentURL: downloadURL,
+                userId: userId,
+                createdAt: new Date()
+              })
+              .then(() => {
+                dispatch({ type: "DO_SUBMIT", e });
+              })
+              .catch(err => {
+                dispatch({ type: "ADD_JOB_ERROR", err });
+              });
+          });
+        })
+    );
   };
 };

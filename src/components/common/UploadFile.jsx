@@ -36,7 +36,7 @@ const UploadFile = props => {
   }
 
   return (
-    <div className="file-inputs__upload-form">
+    <React.Fragment>
       {progressBar}
 
       <FileUpload
@@ -47,7 +47,7 @@ const UploadFile = props => {
         onLoadStart={handleLoadStart}
         onProgress={handleProgress}
         name="file"
-        className="file-inputs__upload-form__file-upload"
+        className="md-cell md-cell--4"
         secondary
         iconBefore
       />
@@ -55,11 +55,11 @@ const UploadFile = props => {
         id="upload-file-field"
         placeholder="No file chosen"
         value={fileName}
-        className="file-inputs__upload-form__file-field"
+        className=" md-cell md-cell--4"
         readOnly
         fullWidth={false}
       />
-    </div>
+    </React.Fragment>
   );
 };
 

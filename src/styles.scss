@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
-
 @import "globals";
 
+$md-light-theme: true;
+$md-primary-color: $md-light-blue-500;
+$md-secondary-color: $md-deep-orange-a-200;
+
 @include react-md-everything;
+
+// Or for a subsection
+@include react-md-theme-everything(
+  $md-light-blue-500,
+  $md-deep-orange-a-200,
+  $md-light-theme,
+  "custom-theme"
+);
 
 * {
   margin: 0;
